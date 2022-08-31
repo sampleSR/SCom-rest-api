@@ -10,6 +10,6 @@ import com.aihc.scomrestapi.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
   
-  public Optional<User> findByUsernameOrEmail(String username, String email);
+  Optional<User> findByUsernameOrEmail(String username, String email);
 
 }

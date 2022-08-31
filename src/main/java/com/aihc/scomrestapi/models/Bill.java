@@ -1,5 +1,6 @@
 package com.aihc.scomrestapi.models;
 
+import com.aihc.scomrestapi.utils.constants.TableConstants;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,16 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.aihc.scomrestapi.utils.constants.TableConstants;
-
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = TableConstants.BILL_TABLE)
 public class Bill {
-    
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = TableConstants.BILL_ID)
@@ -30,5 +28,4 @@ public class Bill {
   @ManyToOne
   @JoinColumn(name = TableConstants.CASHIER_AS_FOREIGN)
   private Cashier cashier;
-
 }

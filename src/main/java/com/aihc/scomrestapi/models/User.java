@@ -1,5 +1,6 @@
 package com.aihc.scomrestapi.models;
 
+import com.aihc.scomrestapi.utils.constants.TableConstants;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
-import com.aihc.scomrestapi.utils.constants.TableConstants;
-
 import lombok.Data;
 
 @Entity
@@ -44,5 +42,4 @@ public class User {
 
   @Column(name = TableConstants.ADDRESS_USER)
   private String address;
-  
 }

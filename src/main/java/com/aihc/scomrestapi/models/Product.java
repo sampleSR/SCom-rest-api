@@ -1,7 +1,7 @@
 package com.aihc.scomrestapi.models;
 
+import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +11,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.aihc.scomrestapi.utils.constants.TableConstants;
-
 import lombok.Data;
 
 @Entity
@@ -26,11 +23,10 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = TableConstants.PRODUCT_ID)
   private Integer id;
-  
+
   @Column(name = TableConstants.PRICE)
   private Double price;
 
   @OneToMany(mappedBy = "product")
   Set<OrderProduct> orders;
-
 }

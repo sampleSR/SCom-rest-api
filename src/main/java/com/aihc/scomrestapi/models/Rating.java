@@ -1,7 +1,7 @@
 package com.aihc.scomrestapi.models;
 
+import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.aihc.scomrestapi.utils.constants.TableConstants;
-
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = TableConstants.RATING_TABLE)
 public class Rating {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = TableConstants.RATING_ID)
@@ -33,9 +30,8 @@ public class Rating {
 
   @Column(name = TableConstants.DATE)
   private Date date;
-  
+
   @ManyToOne
   @JoinColumn(name = TableConstants.CUSTOMER_AS_FOREIGN)
   private Customer customer;
-
 }

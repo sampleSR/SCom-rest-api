@@ -13,7 +13,7 @@ public class TableConstants {
   public static final String ADDRESS_USER = "direccion";
 
   public static final String CUSTOMER_TABLE = "cliente";
-  
+
   public static final String WAITER_TABLE = "camarero";
   public static final String SALARY = "salario";
   public static final String EXPERIENCE = "experiencia";
@@ -33,7 +33,7 @@ public class TableConstants {
   public static final String VALUE = "valoracion";
   public static final String MESSAGE = "mensaje";
   public static final String DATE = "fecha";
-  
+
   public static final String INGREDIENT_TABLE = "ingrediente";
   public static final String INGREDIENT_ID = "id_i";
   public static final String PRICE = "precio";
@@ -61,7 +61,6 @@ public class TableConstants {
   public static final String BILL_TABLE = "factura";
   public static final String BILL_ID = "id_f";
 
-  
   public static final String CUSTOMER_AS_FOREIGN = "id_cliente";
   public static final String CASHIER_AS_FOREIGN = "id_cajero";
   public static final String CHEF_AS_FOREIGN = "id_chef";
@@ -72,12 +71,11 @@ public class TableConstants {
   public static final String FOOD_AS_FOREIGN = "id_plato";
   public static final String ORDER_AS_FOREIGN = "id_pedido";
   public static final String PRODUCT_AS_FOREIGN = "id_producto";
-  
+
   public static final String CHEF_INGREDIENT_RELATIONSHIP = "solicita";
   public static final String FOOD_INGREDIENT_RELATIONSHIP = "cuenta";
   public static final String ORDER_PRODUCT_RELATIONSHIP = "tiene";
   public static final String WAITER_RESTAURANT_TABLE_RELATIONSHIP = "atiende";
-  
-  public static final String AMOUNT = "cantidad";
 
+  public static final String AMOUNT = "cantidad";
 }

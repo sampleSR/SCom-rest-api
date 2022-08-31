@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class LoginResponseDTO {
-  
+
   private String error;
 
   private String message;
@@ -12,5 +12,4 @@ public class LoginResponseDTO {
   private Boolean success;
 
   private String data;
-
 }
