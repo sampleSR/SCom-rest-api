@@ -4,14 +4,18 @@ import com.aihc.scomrestapi.dtos.LoginRequestDTO;
 import com.aihc.scomrestapi.dtos.LoginResponseDTO;
 import com.aihc.scomrestapi.models.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
+import com.aihc.scomrestapi.utils.builders.LoginBuilder;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationService {
 
-  @Autowired UserRepository userRepository;
+  private final UserRepository userRepository;
+
+  public AuthenticationService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
   public LoginResponseDTO authenticateUser(LoginRequestDTO request) {
 
@@ -19,10 +23,7 @@ public class AuthenticationService {
         userRepository.findByUsernameOrEmail(
             request.getUsernameOrEmail(), request.getUsernameOrEmail());
 
-    LoginResponseDTO response = new LoginResponseDTO();
-    response.setError("User or email wrong");
-    response.setSuccess(false);
-    response.setMessage("Bad credentials");
+    LoginResponseDTO response = LoginBuilder.buildBadResponse();
 
     User user = new User();
     if (wrapperUser.isPresent()) {
