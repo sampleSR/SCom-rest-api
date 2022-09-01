@@ -1,2 +1,1 @@
-INSERT IGNORE INTO usuario (username, ap_paterno, ap_materno, nombre, email, contrasenia, direccion) VALUES ('aihc', 'Huanca', 'Condori', 'Alvaro', 'alva0741@gmail.com', 'alvaro123', 'Zona: zona, Calle: calle');
--- INSERT IGNORE INTO administrador (username, ap_paterno, ap_materno, nombre, email, contrasenia, direccion, salario, especialidad) VALUES ('aihc', 'Huanca', 'Condori', 'Alvaro', 'alva0741@gmail.com', 'alvaro123', 'Zona: zona, Calle: calle', 7000, 'Some');
+INSERT IGNORE INTO usuario (id_u, username, ap_paterno, ap_materno, nombre, email, contrasenia, direccion) VALUES (1, 'aihc', 'Huanca', 'Condori', 'Alvaro', 'alva0741@gmail.com', 'alvaro123', 'Zona: zona, Calle: calle');

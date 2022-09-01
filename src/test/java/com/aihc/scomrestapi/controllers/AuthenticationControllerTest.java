@@ -26,23 +26,23 @@ class AuthenticationControllerTest {
 
   @Test
   void logIn() throws Exception {
-
-    when(authService.authenticateUser(LoginBuilder.buildRequest()))
-        .thenReturn(LoginBuilder.buildResponse());
+    System.out.println("hola");
+    when(authService.authenticateUser(LoginBuilder.buildValidRequest()))
+        .thenReturn(LoginBuilder.buildBadResponse());
 
     MvcResult result =
         mockMvc
             .perform(
                 post("/auth/login")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(JsonSerializerHelper.toString(LoginBuilder.buildRequest())))
+                    .content(JsonSerializerHelper.toString(LoginBuilder.buildValidRequest())))
             .andDo(print())
             .andReturn();
 
     Assertions.assertEquals(
-        JsonSerializerHelper.toString(LoginBuilder.buildResponse()),
+        JsonSerializerHelper.toString(LoginBuilder.buildBadResponse()),
         result.getResponse().getContentAsString());
     Assertions.assertTrue(
-        result.getResponse().getContentAsString().contains("\"error\":\"User or email wrong\""));
+        result.getResponse().getContentAsString().contains("\"error\":\"Username or email wrong\""));
   }
 }

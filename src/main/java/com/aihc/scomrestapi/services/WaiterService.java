@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class WaiterService {
 
-  @Autowired private WaiterRepository waiterRepository;
+  private final WaiterRepository waiterRepository;
+
+  public WaiterService(WaiterRepository waiterRepository) {
+    this.waiterRepository = waiterRepository;
+  }
 
   public Waiter save(Waiter waiter) {
     return waiterRepository.save(waiter);
