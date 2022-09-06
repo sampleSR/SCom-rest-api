@@ -10,4 +10,6 @@ public class EndPoint {
   public static final String CHEFS = API + "/chefs";
   public static final String CASHIERS = API + "/cashiers";
   public static final String LOGIN = "/login";
+  public static final String DRINKS = API + "/drinks";
+  public static final String FOODS = API + "/foods";
 }
