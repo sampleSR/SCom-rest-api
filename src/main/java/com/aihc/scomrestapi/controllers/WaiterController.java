@@ -3,7 +3,6 @@ package com.aihc.scomrestapi.controllers;
 import com.aihc.scomrestapi.models.Waiter;
 import com.aihc.scomrestapi.services.WaiterService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

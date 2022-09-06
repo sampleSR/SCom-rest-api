@@ -15,7 +15,7 @@ public class UserController {
 
   private final UserService userService;
 
-  UserController (UserService userService) {
+  UserController(UserService userService) {
     this.userService = userService;
   }
 
@@ -23,7 +23,5 @@ public class UserController {
   public ResponseEntity<User> saveUser(@RequestBody User user) {
 
     return ResponseEntity.ok(userService.save(user));
-
   }
-
 }

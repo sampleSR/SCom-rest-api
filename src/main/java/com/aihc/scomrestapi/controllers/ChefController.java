@@ -1,8 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Cashier;
 import com.aihc.scomrestapi.models.Chef;
-import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.services.ChefService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +23,4 @@ public class ChefController {
   public ResponseEntity<Chef> save(@RequestBody Chef chef) {
     return ResponseEntity.ok(chefService.save(chef));
   }
-
 }

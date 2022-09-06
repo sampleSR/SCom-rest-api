@@ -1,8 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Administrator;
 import com.aihc.scomrestapi.models.Cashier;
-import com.aihc.scomrestapi.services.AdministratorService;
 import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +23,4 @@ public class CashierController {
   public ResponseEntity<Cashier> save(@RequestBody Cashier cashier) {
     return ResponseEntity.ok(cashierService.save(cashier));
   }
-
 }

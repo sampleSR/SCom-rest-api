@@ -1,9 +1,7 @@
 package com.aihc.scomrestapi.services;
 
 import com.aihc.scomrestapi.models.Administrator;
-import com.aihc.scomrestapi.models.Waiter;
 import com.aihc.scomrestapi.repositories.AdministratorRepository;
-import com.aihc.scomrestapi.repositories.WaiterRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,5 +16,4 @@ public class AdministratorService {
   public Administrator save(Administrator admin) {
     return administratorRepository.save(admin);
   }
-
 }
