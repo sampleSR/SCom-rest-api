@@ -4,7 +4,6 @@ import com.aihc.scomrestapi.dtos.LoginRequestDTO;
 import com.aihc.scomrestapi.dtos.LoginResponseDTO;
 import com.aihc.scomrestapi.services.AuthenticationService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

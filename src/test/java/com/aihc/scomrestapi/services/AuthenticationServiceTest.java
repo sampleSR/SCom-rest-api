@@ -18,21 +18,18 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class AuthenticationServiceTest {
 
-  @Mock
-  private UserRepository userRepository;
+  @Mock private UserRepository userRepository;
 
-  @InjectMocks
-  AuthenticationService authenticationService;
+  @InjectMocks AuthenticationService authenticationService;
 
   @Test
   public void should_getSuccessResponse_when_requestIsCorrect() {
-    when(userRepository.findByUsernameOrEmail(any(String.class), any(String.class))).thenReturn(
-        Optional.of(UserBuilder.buildAcceptedUser()));
+    when(userRepository.findByUsernameOrEmail(any(String.class), any(String.class)))
+        .thenReturn(Optional.of(UserBuilder.buildAcceptedUser()));
 
-    LoginResponseDTO response = authenticationService.authenticateUser(LoginBuilder.buildValidRequest());
+    LoginResponseDTO response =
+        authenticationService.authenticateUser(LoginBuilder.buildValidRequest());
 
     assertTrue(response.getSuccess());
-
   }
-
 }

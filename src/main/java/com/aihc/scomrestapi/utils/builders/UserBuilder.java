@@ -5,6 +5,7 @@ import com.aihc.scomrestapi.models.User;
 public class UserBuilder {
 
   private static User user = null;
+
   public static User buildAcceptedUser() {
     if (user == null) {
       user = new User();
@@ -13,5 +14,4 @@ public class UserBuilder {
     }
     return user;
   }
-
 }

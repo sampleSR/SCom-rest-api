@@ -43,6 +43,9 @@ class AuthenticationControllerTest {
         JsonSerializerHelper.toString(LoginBuilder.buildBadResponse()),
         result.getResponse().getContentAsString());
     Assertions.assertTrue(
-        result.getResponse().getContentAsString().contains("\"error\":\"Username or email wrong\""));
+        result
+            .getResponse()
+            .getContentAsString()
+            .contains("\"error\":\"Username or email wrong\""));
   }
 }

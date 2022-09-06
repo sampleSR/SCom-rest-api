@@ -16,7 +16,6 @@ public class LoginBuilder {
     request.setUsernameOrEmail("alvaro");
     request.setPassword("alvaro123");
     return request;
-
   }
 
   public static LoginResponseDTO buildBadResponse() {
@@ -30,7 +29,5 @@ public class LoginBuilder {
     response.setData("");
 
     return response;
-
   }
-
 }
