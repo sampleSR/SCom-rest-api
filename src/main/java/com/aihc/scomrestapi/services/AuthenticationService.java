@@ -50,13 +50,13 @@ public class AuthenticationService {
     User user = new User();
     if (wrapperUser.isPresent()) {
       user = wrapperUser.get();
-    }
-    if (user.getPassword().equals(request.getPassword())) {
-      response.setError("");
-      InfoLoggedUser data = new InfoLoggedUser(user.getId(), getRoleByUserId(user.getId()));
-      response.setData(data);
-      response.setMessage("Ok");
-      response.setSuccess(true);
+      if (user.getPassword().equals(request.getPassword())) {
+        response.setError("");
+        InfoLoggedUser data = new InfoLoggedUser(user.getId(), getRoleByUserId(user.getId()));
+        response.setData(data);
+        response.setMessage("Ok");
+        response.setSuccess(true);
+      }
     }
     return response;
   }
