@@ -24,8 +24,13 @@ public class AuthenticationService {
   private final CustomerRepository customerRepository;
   private final WaiterRepository waiterRepository;
 
-  public AuthenticationService(UserRepository userRepository, AdministratorRepository administratorRepository,
-      CashierRepository cashierRepository, ChefRepository chefRepository, CustomerRepository customerRepository, WaiterRepository waiterRepository) {
+  public AuthenticationService(
+      UserRepository userRepository,
+      AdministratorRepository administratorRepository,
+      CashierRepository cashierRepository,
+      ChefRepository chefRepository,
+      CustomerRepository customerRepository,
+      WaiterRepository waiterRepository) {
     this.userRepository = userRepository;
     this.administratorRepository = administratorRepository;
     this.cashierRepository = cashierRepository;
@@ -74,5 +79,4 @@ public class AuthenticationService {
     }
     return "user";
   }
-
 }
