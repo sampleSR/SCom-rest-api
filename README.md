@@ -15,4 +15,4 @@ CREATE DATABASE scom_rest;
 ```
 mvn spring-boot:run
 ```
-4. Search http://localhost/swagger-ui/index.html
+4. Search http://localhost:8080/swagger-ui/index.html

@@ -11,5 +11,5 @@ public class LoginResponseDTO {
 
   private Boolean success;
 
-  private String data;
+  private InfoLoggedUser data;
 }
