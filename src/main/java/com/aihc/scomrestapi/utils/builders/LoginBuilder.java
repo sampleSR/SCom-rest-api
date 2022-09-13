@@ -26,7 +26,7 @@ public class LoginBuilder {
     response.setError("Username or email wrong");
     response.setSuccess(false);
     response.setMessage("Bad credentials");
-    response.setData("");
+    response.setData(null);
 
     return response;
   }
