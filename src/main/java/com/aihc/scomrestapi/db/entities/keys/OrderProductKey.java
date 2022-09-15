@@ -1,4 +1,4 @@
-package com.aihc.scomrestapi.models.keys;
+package com.aihc.scomrestapi.db.entities.keys;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.io.Serializable;

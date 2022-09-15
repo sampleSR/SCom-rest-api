@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Food;
+import com.aihc.scomrestapi.db.entities.Food;
 import com.aihc.scomrestapi.services.FoodService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;

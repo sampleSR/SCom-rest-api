@@ -1,4 +1,4 @@
-package com.aihc.scomrestapi.models;
+package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.repositories;
 
-import com.aihc.scomrestapi.models.User;
+import com.aihc.scomrestapi.db.entities.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

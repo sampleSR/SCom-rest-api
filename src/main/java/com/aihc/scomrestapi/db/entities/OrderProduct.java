@@ -1,6 +1,6 @@
-package com.aihc.scomrestapi.models;
+package com.aihc.scomrestapi.db.entities;
 
-import com.aihc.scomrestapi.models.keys.OrderProductKey;
+import com.aihc.scomrestapi.db.entities.keys.OrderProductKey;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;

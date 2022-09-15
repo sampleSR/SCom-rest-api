@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.Administrator;
+import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.repositories.AdministratorRepository;
 import org.springframework.stereotype.Service;
 

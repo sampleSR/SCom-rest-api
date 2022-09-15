@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.Cashier;
+import com.aihc.scomrestapi.db.entities.Cashier;
 import com.aihc.scomrestapi.repositories.CashierRepository;
 import org.springframework.stereotype.Service;
 

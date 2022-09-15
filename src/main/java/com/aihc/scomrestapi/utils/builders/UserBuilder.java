@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.utils.builders;
 
-import com.aihc.scomrestapi.models.User;
+import com.aihc.scomrestapi.db.entities.User;
 
 public class UserBuilder {
 

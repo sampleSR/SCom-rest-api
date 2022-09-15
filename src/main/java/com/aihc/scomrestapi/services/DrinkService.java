@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.Drink;
+import com.aihc.scomrestapi.db.entities.Drink;
 import com.aihc.scomrestapi.repositories.DrinkRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;

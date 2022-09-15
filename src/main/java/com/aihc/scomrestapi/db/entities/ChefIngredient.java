@@ -1,6 +1,6 @@
-package com.aihc.scomrestapi.models;
+package com.aihc.scomrestapi.db.entities;
 
-import com.aihc.scomrestapi.models.keys.ChefIngredientKey;
+import com.aihc.scomrestapi.db.entities.keys.ChefIngredientKey;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Date;
 import javax.persistence.Column;

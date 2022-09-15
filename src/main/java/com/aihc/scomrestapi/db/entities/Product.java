@@ -1,4 +1,4 @@
-package com.aihc.scomrestapi.models;
+package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Set;
@@ -7,31 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = TableConstants.INGREDIENT_TABLE)
-public class Ingredient {
+@Table(name = TableConstants.PRODUCT_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = TableConstants.INGREDIENT_ID)
+  @Column(name = TableConstants.PRODUCT_ID)
   private Integer id;
-
-  @Column(name = TableConstants.NAME)
-  private String name;
-
-  private Integer stock;
 
   @Column(name = TableConstants.PRICE)
   private Double price;
 
-  @OneToMany(mappedBy = "ingredient")
-  Set<ChefIngredient> chefs;
-
-  @OneToMany(mappedBy = "ingredient")
-  Set<FoodIngredient> foods;
+  @OneToMany(mappedBy = "product")
+  Set<OrderProduct> orders;
 }

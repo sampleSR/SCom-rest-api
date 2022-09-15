@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.repositories;
 
-import com.aihc.scomrestapi.models.RestaurantTable;
+import com.aihc.scomrestapi.db.entities.RestaurantTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Cashier;
+import com.aihc.scomrestapi.db.entities.Cashier;
 import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
