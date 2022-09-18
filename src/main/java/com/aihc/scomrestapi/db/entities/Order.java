@@ -5,6 +5,7 @@ import com.aihc.scomrestapi.models.ProductMdl;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -62,7 +63,7 @@ public class Order {
   public OrderMdl toModel() {
     OrderMdl orderMdl = new OrderMdl();
     orderMdl.setId(id);
-    List<ProductMdl> productMdls = new ArrayList<>();
+    Set<ProductMdl> productMdls = new HashSet<>();
     products.forEach(p -> {
       ProductMdl productMdl = new ProductMdl();
       productMdl.setId(p.getProduct().getId());

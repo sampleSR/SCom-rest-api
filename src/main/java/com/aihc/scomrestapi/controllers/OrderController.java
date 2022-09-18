@@ -27,9 +27,8 @@ public class OrderController {
   }
 
   @PostMapping
-  public ResponseEntity<Order> save(@RequestBody Order order) {
-//    Order order = orderMdl.toEntity();
-    return ResponseEntity.ok(orderService.saveWithProducts(order));
+  public ResponseEntity<Order> save(@RequestBody OrderMdl order) {
+    return ResponseEntity.ok(orderService.save(order));
   }
 
   @GetMapping

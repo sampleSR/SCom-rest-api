@@ -27,22 +27,22 @@ public class OrderService {
   }
 
 
-  public Order saveWithProducts(Order order) {
-    Order newOrder = new Order();
-    newOrder.setDate(new Date());
-    newOrder.getProducts().addAll(order.getProducts()
+  public Order save(OrderMdl orderMdl) {
+    Order order = new Order();
+    order.setDate(new Date());
+    order.getProducts().addAll(orderMdl.getProducts()
         .stream()
         .map(p -> {
-          Product product = productRepository.findById(p.getProduct().getId()).get();
+          Product product = productRepository.findById(p.getId()).get();
           OrderProduct nop = new OrderProduct();
           nop.setProduct(product);
-          nop.setOrder(newOrder);
-          nop.setAmount(15);
+          nop.setOrder(order);
+          nop.setAmount(p.getAmount());
           return nop;
         })
         .collect(Collectors.toSet())
     );
-    return orderRepository.save(newOrder);
+    return orderRepository.save(order);
   }
   //  public Order saveWithProducts(Order order) {        Update
 //    Optional<Order> wO = orderRepository.findById(17);
@@ -62,24 +62,7 @@ public class OrderService {
 ////    );
 //    return orderRepository.save(newOrder);
 //  }
-  public Order save(Order order) {
 
-    order.getProducts().forEach(orderProduct -> {
-      orderProduct.setOrder(order);
-      orderProduct.setProduct(productRepository.findById(orderProduct.getProduct().getId()).get());
-      var key = new OrderProductKey();
-      key.setOrderId(order.getId());
-      key.setProductId(orderProduct.getProduct().getId());
-      orderProduct.setId(key);
-    });
-
-//    order.getProducts().forEach(op -> {
-//      op.setProduct(productRepository.findById(op.getProduct().getId()).get());
-//    });
-    return orderRepository.saveAndFlush(order);
-    //return order;
-
-  }
 
   public List<Order> findAll() {
     return orderRepository.findAll();

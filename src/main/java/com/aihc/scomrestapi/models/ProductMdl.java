@@ -2,9 +2,11 @@ package com.aihc.scomrestapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductMdl {
@@ -13,5 +15,6 @@ public class ProductMdl {
   private String type;
   private String nameOrBrand;
   private String description;
+  private Integer amount;
 
 }
