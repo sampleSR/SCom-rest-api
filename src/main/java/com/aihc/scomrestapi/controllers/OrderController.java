@@ -11,7 +11,9 @@ import java.util.List;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +31,11 @@ public class OrderController {
   @PostMapping
   public ResponseEntity<Order> save(@RequestBody OrderMdl order) {
     return ResponseEntity.ok(orderService.save(order));
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Order> update(@PathVariable Integer id, @RequestBody OrderMdl order) {
+    return ResponseEntity.ok(orderService.update(id, order));
   }
 
   @GetMapping

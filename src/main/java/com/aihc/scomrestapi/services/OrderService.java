@@ -10,6 +10,8 @@ import com.aihc.scomrestapi.repositories.ProductRepository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
@@ -75,5 +77,27 @@ public class OrderService {
       orderMdls.add(order.toModel());
     });
     return orderMdls;
+  }
+
+  public Order update(Integer id, OrderMdl orderMdl) {
+
+    Optional<Order> wrapper = orderRepository.findById(id);
+    if (wrapper.isEmpty()){
+      throw new RuntimeException();
+    }
+    Order order = wrapper.get();
+    order.setDate(new Date());
+//    orderMdl.getProducts()
+//        .stream()
+//        .forEach(p -> {
+//          if (order.getProducts().stream().anyMatch(po -> {
+//            return Objects.equals(po.getProduct().getId(), p.getId());
+//          })){
+//            order.getProducts().forEach(orderProduct -> {
+//              if (orderProduct.getProduct().getId() == )
+//            });
+//          }
+//        });
+    return order;
   }
 }
