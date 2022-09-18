@@ -3,10 +3,12 @@ package com.aihc.scomrestapi.controllers;
 import com.aihc.scomrestapi.dtos.OrderRequestDTO;
 import com.aihc.scomrestapi.dtos.OrderResponseDTO;
 import com.aihc.scomrestapi.db.entities.Order;
+import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.services.OrderService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.ArrayList;
 import java.util.List;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,14 +27,21 @@ public class OrderController {
   }
 
   @PostMapping
-  public ResponseEntity<Order> save(@RequestBody OrderRequestDTO order) {
-    //Order order1 = orderService.save(order);
-    return ResponseEntity.ok(new Order());
+  public ResponseEntity<Order> save(@RequestBody Order order) {
+//    Order order = orderMdl.toEntity();
+    return ResponseEntity.ok(orderService.saveWithProducts(order));
   }
 
   @GetMapping
-  public ResponseEntity<List<OrderResponseDTO>> getAll() {
-    return ResponseEntity.ok(new ArrayList<OrderResponseDTO>());
+  public ResponseEntity<List<OrderMdl>> getAll() {
+    List<OrderMdl> orders = orderService.findAllModels();
+    return ResponseEntity.ok(orders);
+  }
+
+  @GetMapping("/all")
+  public ResponseEntity<List<Order>> getAllFields() {
+    List<Order> orders = orderService.findAll();
+    return ResponseEntity.ok(orders);
   }
 
 }
