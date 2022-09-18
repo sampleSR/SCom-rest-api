@@ -29,15 +29,17 @@ public class StatsService {
 
     List<Order> orders = orderRepository.findByDateBillBetween(startDate, endDate);
     AtomicReference<Double> incomes = new AtomicReference<>((double) 0);
-    orders.forEach(order -> {
-      order.getProducts().forEach(orderProduct -> {
-        incomes.updateAndGet(
-            v -> v + orderProduct.getAmount() * orderProduct.getProduct().getPrice());
-      });
-    });
+    orders.forEach(
+        order -> {
+          order
+              .getProducts()
+              .forEach(
+                  orderProduct -> {
+                    incomes.updateAndGet(
+                        v -> v + orderProduct.getAmount() * orderProduct.getProduct().getPrice());
+                  });
+        });
 
     return incomes.get();
-
   }
-
 }

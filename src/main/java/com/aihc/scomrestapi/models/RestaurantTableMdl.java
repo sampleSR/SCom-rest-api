@@ -15,9 +15,13 @@ public class RestaurantTableMdl {
   private Integer capacity;
   private String number;
 
-  public RestaurantTable toEntity() {
-    RestaurantTable rt = new RestaurantTable(id, capacity, number, new HashSet<>());
-    return rt;
+  public RestaurantTableMdl(RestaurantTable table) {
+    this.id = table.getId();
+    this.capacity = table.getCapacity();
+    this.number = table.getNumber();
   }
 
+  public RestaurantTable toEntity() {
+    return new RestaurantTable(id, capacity, number, new HashSet<>());
+  }
 }

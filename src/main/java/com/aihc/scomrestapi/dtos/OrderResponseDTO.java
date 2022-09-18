@@ -7,7 +7,8 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class OrderResponseDTO {
 
   private Integer id;
@@ -17,5 +18,4 @@ public class OrderResponseDTO {
   private List<Product> products;
 
   private RestaurantTable table;
-
 }

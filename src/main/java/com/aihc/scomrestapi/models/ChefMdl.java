@@ -12,10 +12,13 @@ public class ChefMdl {
 
   private Integer id;
 
+  public ChefMdl(Chef chef) {
+    this.id = chef.getId();
+  }
+
   public Chef toEntity() {
     Chef chef = new Chef();
     chef.setId(id);
     return chef;
   }
-
 }
