@@ -87,17 +87,18 @@ public class OrderService {
     }
     Order order = wrapper.get();
     order.setDate(new Date());
-//    orderMdl.getProducts()
-//        .stream()
-//        .forEach(p -> {
-//          if (order.getProducts().stream().anyMatch(po -> {
-//            return Objects.equals(po.getProduct().getId(), p.getId());
-//          })){
-//            order.getProducts().forEach(orderProduct -> {
-//              if (orderProduct.getProduct().getId() == )
-//            });
-//          }
-//        });
-    return order;
+    orderMdl.getProducts()
+        .forEach(p -> {
+          if (order.getProducts().stream().anyMatch(po -> {
+            return Objects.equals(po.getProduct().getId(), p.getId());
+          })){
+            order.getProducts().forEach(orderProduct -> {
+              if (Objects.equals(orderProduct.getProduct().getId(), p.getId())) {
+                orderProduct.setAmount(p.getAmount());
+              }
+            });
+          }//Add logic for a new product in a product
+        });
+    return orderRepository.save(order);
   }
 }
