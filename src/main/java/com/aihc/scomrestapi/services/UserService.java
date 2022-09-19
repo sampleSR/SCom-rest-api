@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.User;
+import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 

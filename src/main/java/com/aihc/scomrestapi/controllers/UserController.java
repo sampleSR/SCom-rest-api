@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.User;
+import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.services.UserService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;

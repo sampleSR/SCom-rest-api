@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.Customer;
+import com.aihc.scomrestapi.db.entities.Customer;
 import com.aihc.scomrestapi.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 

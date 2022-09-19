@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Drink;
+import com.aihc.scomrestapi.db.entities.Drink;
 import com.aihc.scomrestapi.services.DrinkService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;

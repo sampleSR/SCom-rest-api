@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.models.Waiter;
+import com.aihc.scomrestapi.db.entities.Waiter;
 import com.aihc.scomrestapi.services.WaiterService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;

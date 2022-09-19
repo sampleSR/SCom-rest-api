@@ -1,4 +1,4 @@
-package com.aihc.scomrestapi.models;
+package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import java.util.Set;
@@ -9,10 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = TableConstants.TABLE_REST_TABLE)
 public class RestaurantTable {
 

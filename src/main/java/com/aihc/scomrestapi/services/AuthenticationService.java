@@ -1,9 +1,9 @@
 package com.aihc.scomrestapi.services;
 
+import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.dtos.InfoLoggedUser;
 import com.aihc.scomrestapi.dtos.LoginRequestDTO;
 import com.aihc.scomrestapi.dtos.LoginResponseDTO;
-import com.aihc.scomrestapi.models.User;
 import com.aihc.scomrestapi.repositories.AdministratorRepository;
 import com.aihc.scomrestapi.repositories.CashierRepository;
 import com.aihc.scomrestapi.repositories.ChefRepository;

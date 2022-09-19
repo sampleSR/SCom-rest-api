@@ -22,3 +22,19 @@ INSERT IGNORE INTO producto (id_p, precio) VALUES (5, 20.0);
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (5, '0%', 'Mendocina', '3L');
 INSERT IGNORE INTO producto (id_p, precio) VALUES (6, 17.0);
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (6, '0%', 'Coca-Cola', '1L');
+
+----------------------------------------
+INSERT IGNORE INTO pedido (id_pe, fecha) VALUES (1, '2022-1-17');
+INSERT IGNORE INTO pedido (id_pe, fecha) VALUES (2, '2022-1-18');
+INSERT IGNORE INTO pedido (id_pe, fecha) VALUES (3, '2022-1-19');
+INSERT IGNORE INTO pedido (id_pe, fecha) VALUES (4, '2022-1-20');
+
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (1, 1, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (1, 6, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (2, 4, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (3, 2, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (3, 3, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (3, 4, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (4, 5, 3);
+INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (4, 1, 3);
+

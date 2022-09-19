@@ -1,6 +1,6 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.models.Food;
+import com.aihc.scomrestapi.db.entities.Food;
 import com.aihc.scomrestapi.repositories.FoodRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
