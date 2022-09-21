@@ -1,8 +1,12 @@
 package com.aihc.scomrestapi.dtos;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class StatsDTO {
 
   private String name;

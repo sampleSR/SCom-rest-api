@@ -52,7 +52,8 @@ public class AuthenticationService {
       user = wrapperUser.get();
       if (user.getPassword().equals(request.getPassword())) {
         response.setError("");
-        InfoLoggedUser data = new InfoLoggedUser(user.getId(), getRoleByUserId(user.getId()));
+        InfoLoggedUser data =
+            new InfoLoggedUser(user.getId(), getRoleByUserId(user.getId()), user.getUsername());
         response.setData(data);
         response.setMessage("Ok");
         response.setSuccess(true);
