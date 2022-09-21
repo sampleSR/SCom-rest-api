@@ -2,7 +2,8 @@ package com.aihc.scomrestapi.dtos;
 
 import lombok.*;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
