@@ -1,13 +1,12 @@
 package com.aihc.scomrestapi.controllers;
 
+import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Cashier;
+import com.aihc.scomrestapi.db.entities.Chef;
 import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(EndPoint.CASHIERS)
@@ -23,4 +22,10 @@ public class CashierController {
   public ResponseEntity<Cashier> save(@RequestBody Cashier cashier) {
     return ResponseEntity.ok(cashierService.save(cashier));
   }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<Cashier> getById(@PathVariable Integer id) {
+    return ResponseEntity.ok(cashierService.findById(id));
+  }
+
 }
