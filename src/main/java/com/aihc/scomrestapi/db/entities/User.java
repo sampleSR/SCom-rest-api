@@ -1,14 +1,10 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Entity
@@ -20,6 +16,7 @@ public class User {
   @Id
   @Column(name = TableConstants.USER_ID)
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
   private Integer id;
 
   @Column(name = TableConstants.USERNAME)
@@ -38,8 +35,13 @@ public class User {
   private String email;
 
   @Column(name = TableConstants.PASSWORD)
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private String password;
 
   @Column(name = TableConstants.ADDRESS_USER)
   private String address;
+
+  @Transient
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+  private String role;
 }

@@ -62,7 +62,7 @@ public class AuthenticationService {
     return response;
   }
 
-  private String getRoleByUserId(Integer id) {
+  public String getRoleByUserId(Integer id) {
     if (administratorRepository.findById(id).isPresent()) {
       return "administrator";
     }

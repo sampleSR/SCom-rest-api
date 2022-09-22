@@ -4,10 +4,7 @@ import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.services.AdministratorService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(EndPoint.ADMINISTRATORS)
@@ -22,5 +19,10 @@ public class AdministratorController {
   @PostMapping
   public ResponseEntity<Administrator> save(@RequestBody Administrator admin) {
     return ResponseEntity.ok(administratorService.save(admin));
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<Administrator> getById(@PathVariable Integer id) {
+    return ResponseEntity.ok(administratorService.findById(id));
   }
 }

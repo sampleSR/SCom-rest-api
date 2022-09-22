@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,5 +33,6 @@ public class Waiter extends User {
       name = TableConstants.WAITER_RESTAURANT_TABLE_RELATIONSHIP,
       joinColumns = @JoinColumn(name = TableConstants.WAITER_AS_FOREIGN),
       inverseJoinColumns = @JoinColumn(name = TableConstants.RESTAURANT_TABLE_AS_FOREIGN))
+  @JsonIgnore
   Set<RestaurantTable> tables;
 }

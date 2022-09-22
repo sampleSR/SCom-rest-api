@@ -1,5 +1,6 @@
 package com.aihc.scomrestapi.services;
 
+import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Chef;
 import com.aihc.scomrestapi.repositories.ChefRepository;
 import java.util.Optional;
@@ -9,9 +10,12 @@ import org.springframework.stereotype.Service;
 public class ChefService {
 
   private final ChefRepository chefRepository;
+  private final AuthenticationService authenticationService;
 
-  public ChefService(ChefRepository chefRepository) {
+
+  public ChefService(ChefRepository chefRepository, AuthenticationService authenticationService) {
     this.chefRepository = chefRepository;
+    this.authenticationService = authenticationService;
   }
 
   public Chef save(Chef chef) {
@@ -23,6 +27,8 @@ public class ChefService {
     if (chefWrapper.isEmpty()) {
       throw new RuntimeException();
     }
-    return chefWrapper.get();
+    Chef chef = chefWrapper.get();
+    chef.setRole(authenticationService.getRoleByUserId(chef.getId()));
+    return chef;
   }
 }

@@ -4,10 +4,9 @@ import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.services.UserService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(EndPoint.USERS)
@@ -24,4 +23,10 @@ public class UserController {
 
     return ResponseEntity.ok(userService.save(user));
   }
+
+  @GetMapping
+  public ResponseEntity<List<User>> retrieveAll() {
+    return ResponseEntity.ok(userService.findAll());
+  }
+
 }
