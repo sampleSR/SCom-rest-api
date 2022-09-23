@@ -2,6 +2,7 @@ package com.aihc.scomrestapi.services;
 
 import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,4 +29,13 @@ public class UserService {
     });
     return users;
   }
+
+    public User deleteById(final Integer id) {
+      Optional<User> userWrapper = userRepository.findById(id);
+      if (userWrapper.isEmpty()) {
+        throw new RuntimeException();
+      }
+      userRepository.delete(userWrapper.get());
+      return userWrapper.get();
+    }
 }
