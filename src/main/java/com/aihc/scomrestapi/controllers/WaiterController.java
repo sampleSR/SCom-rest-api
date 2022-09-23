@@ -26,4 +26,10 @@ public class WaiterController {
   public ResponseEntity<Waiter> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(waiterService.findById(id));
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Waiter> updateUser(@PathVariable Integer id,
+      @RequestBody Waiter waiter) {
+    return ResponseEntity.accepted().body(waiterService.update(id, waiter));
+  }
 }

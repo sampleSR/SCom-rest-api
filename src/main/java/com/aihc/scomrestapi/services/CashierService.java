@@ -33,4 +33,15 @@ public class CashierService {
     return cashier;
   }
 
+  public Cashier update(final Integer id, final Cashier cashier) {
+    Optional<Cashier> cashierWrapper = cashierRepository.findById(id);
+    if (cashierWrapper.isEmpty()) {
+      throw new RuntimeException();
+    }
+    cashier.setId(id);
+    cashier.setPassword(cashierWrapper.get().getPassword());
+    cashier.setRole(authenticationService.getRoleByUserId(id));
+    return cashierRepository.save(cashier);
+  }
+
 }

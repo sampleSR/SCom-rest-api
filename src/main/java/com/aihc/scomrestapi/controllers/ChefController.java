@@ -27,4 +27,10 @@ public class ChefController {
     return ResponseEntity.ok(chefService.findById(id));
   }
 
+  @PutMapping("/{id}")
+  public ResponseEntity<Chef> updateUser(@PathVariable Integer id,
+      @RequestBody Chef chef) {
+    return ResponseEntity.accepted().body(chefService.update(id, chef));
+  }
+
 }

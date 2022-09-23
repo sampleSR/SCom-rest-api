@@ -30,4 +30,15 @@ public class AdministratorService {
     admin.setRole(authenticationService.getRoleByUserId(admin.getId()));
     return admin;
   }
+
+    public Administrator update(final Integer id, final Administrator administrator) {
+      Optional<Administrator> adminWrapper = administratorRepository.findById(id);
+      if (adminWrapper.isEmpty()) {
+        throw new RuntimeException();
+      }
+      administrator.setId(id);
+      administrator.setPassword(adminWrapper.get().getPassword());
+      administrator.setRole(authenticationService.getRoleByUserId(id));
+      return administratorRepository.save(administrator);
+    }
 }

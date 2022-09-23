@@ -33,4 +33,15 @@ public class CustomerService {
     return customer;
   }
 
+  public Customer update(final Integer id, final Customer customer) {
+    Optional<Customer> customerWrapper = customerRepository.findById(id);
+    if (customerWrapper.isEmpty()) {
+      throw new RuntimeException();
+    }
+    customer.setId(id);
+    customer.setPassword(customerWrapper.get().getPassword());
+    customer.setRole(authenticationService.getRoleByUserId(id));
+    return customerRepository.save(customer);
+  }
+
 }
