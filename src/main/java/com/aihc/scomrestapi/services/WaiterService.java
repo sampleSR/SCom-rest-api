@@ -31,4 +31,16 @@ public class WaiterService {
     waiter.setRole(authenticationService.getRoleByUserId(waiter.getId()));
     return waiter;
   }
+
+  public Waiter update(final Integer id, final Waiter waiter) {
+    Optional<Waiter> waiterWrapper = waiterRepository.findById(id);
+    if (waiterWrapper.isEmpty()) {
+      throw new RuntimeException();
+    }
+    waiter.setId(id);
+    waiter.setPassword(waiterWrapper.get().getPassword());
+    waiter.setRole(authenticationService.getRoleByUserId(id));
+    return waiterRepository.save(waiter);
+  }
+
 }

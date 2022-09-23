@@ -25,4 +25,10 @@ public class AdministratorController {
   public ResponseEntity<Administrator> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(administratorService.findById(id));
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Administrator> updateUser(@PathVariable Integer id,
+      @RequestBody Administrator administrator) {
+    return ResponseEntity.accepted().body(administratorService.update(id, administrator));
+  }
 }

@@ -31,4 +31,15 @@ public class ChefService {
     chef.setRole(authenticationService.getRoleByUserId(chef.getId()));
     return chef;
   }
+
+  public Chef update(final Integer id, final Chef chef) {
+    Optional<Chef> chefWrapper = chefRepository.findById(id);
+    if (chefWrapper.isEmpty()) {
+      throw new RuntimeException();
+    }
+    chef.setId(id);
+    chef.setPassword(chefWrapper.get().getPassword());
+    chef.setRole(authenticationService.getRoleByUserId(id));
+    return chefRepository.save(chef);
+  }
 }

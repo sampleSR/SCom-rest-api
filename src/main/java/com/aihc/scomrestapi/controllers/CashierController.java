@@ -5,6 +5,7 @@ import com.aihc.scomrestapi.db.entities.Cashier;
 import com.aihc.scomrestapi.db.entities.Chef;
 import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
+import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,12 @@ public class CashierController {
   @GetMapping("/{id}")
   public ResponseEntity<Cashier> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(cashierService.findById(id));
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Cashier> updateUser(@PathVariable Integer id,
+      @RequestBody Cashier cashier) {
+    return ResponseEntity.accepted().body(cashierService.update(id, cashier));
   }
 
 }

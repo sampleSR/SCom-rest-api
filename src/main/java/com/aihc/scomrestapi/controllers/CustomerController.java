@@ -26,4 +26,10 @@ public class CustomerController {
   public ResponseEntity<Customer> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(customerService.findById(id));
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Customer> updateUser(@PathVariable Integer id,
+      @RequestBody Customer customer) {
+    return ResponseEntity.accepted().body(customerService.update(id, customer));
+  }
 }
