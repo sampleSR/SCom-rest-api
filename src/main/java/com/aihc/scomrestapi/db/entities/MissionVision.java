@@ -2,6 +2,8 @@ package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +24,7 @@ public class MissionVision {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = TableConstants.MISSION_VISION_ID)
+  @JsonProperty(access = Access.READ_ONLY)
   private Integer id;
 
   @Column(name = TableConstants.MISSION, length = TableConstants.MISSION_LENGTH)
@@ -34,7 +37,9 @@ public class MissionVision {
   @JsonIgnore
   private LocalDate date;
 
-  @Transient private Integer adminId;
+  @JsonProperty(access = Access.WRITE_ONLY)
+  @Transient
+  private Integer adminId;
 
   @ManyToOne
   @JoinColumn(name = TableConstants.ADMINISTRATOR_AS_FOREIGN)
