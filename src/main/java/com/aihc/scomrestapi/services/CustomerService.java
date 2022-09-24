@@ -1,11 +1,9 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Customer;
 import com.aihc.scomrestapi.repositories.CustomerRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService {
@@ -13,8 +11,8 @@ public class CustomerService {
   private final CustomerRepository customerRepository;
   private final AuthenticationService authenticationService;
 
-
-  public CustomerService(CustomerRepository customerRepository, AuthenticationService authenticationService) {
+  public CustomerService(
+      CustomerRepository customerRepository, AuthenticationService authenticationService) {
     this.customerRepository = customerRepository;
     this.authenticationService = authenticationService;
   }
@@ -43,5 +41,4 @@ public class CustomerService {
     customer.setRole(authenticationService.getRoleByUserId(id));
     return customerRepository.save(customer);
   }
-
 }

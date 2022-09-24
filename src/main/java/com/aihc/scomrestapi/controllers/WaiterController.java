@@ -1,6 +1,5 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Waiter;
 import com.aihc.scomrestapi.services.WaiterService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
@@ -28,8 +27,7 @@ public class WaiterController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Waiter> updateUser(@PathVariable Integer id,
-      @RequestBody Waiter waiter) {
+  public ResponseEntity<Waiter> updateUser(@PathVariable Integer id, @RequestBody Waiter waiter) {
     return ResponseEntity.accepted().body(waiterService.update(id, waiter));
   }
 }

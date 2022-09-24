@@ -27,8 +27,8 @@ public class AdministratorController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Administrator> updateUser(@PathVariable Integer id,
-      @RequestBody Administrator administrator) {
+  public ResponseEntity<Administrator> updateUser(
+      @PathVariable Integer id, @RequestBody Administrator administrator) {
     return ResponseEntity.accepted().body(administratorService.update(id, administrator));
   }
 }

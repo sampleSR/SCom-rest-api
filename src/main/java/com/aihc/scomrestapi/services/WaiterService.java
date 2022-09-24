@@ -1,11 +1,9 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Waiter;
 import com.aihc.scomrestapi.repositories.WaiterRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class WaiterService {
@@ -13,7 +11,8 @@ public class WaiterService {
   private final WaiterRepository waiterRepository;
   private final AuthenticationService authenticationService;
 
-  public WaiterService(WaiterRepository waiterRepository, AuthenticationService authenticationService) {
+  public WaiterService(
+      WaiterRepository waiterRepository, AuthenticationService authenticationService) {
     this.waiterRepository = waiterRepository;
     this.authenticationService = authenticationService;
   }
@@ -42,5 +41,4 @@ public class WaiterService {
     waiter.setRole(authenticationService.getRoleByUserId(id));
     return waiterRepository.save(waiter);
   }
-
 }

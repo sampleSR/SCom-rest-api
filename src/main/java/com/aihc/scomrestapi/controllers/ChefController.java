@@ -1,6 +1,5 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Chef;
 import com.aihc.scomrestapi.services.ChefService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
@@ -28,9 +27,7 @@ public class ChefController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Chef> updateUser(@PathVariable Integer id,
-      @RequestBody Chef chef) {
+  public ResponseEntity<Chef> updateUser(@PathVariable Integer id, @RequestBody Chef chef) {
     return ResponseEntity.accepted().body(chefService.update(id, chef));
   }
-
 }

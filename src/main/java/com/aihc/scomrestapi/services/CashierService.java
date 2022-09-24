@@ -1,11 +1,9 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Cashier;
 import com.aihc.scomrestapi.repositories.CashierRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CashierService {
@@ -13,8 +11,8 @@ public class CashierService {
   private final CashierRepository cashierRepository;
   private final AuthenticationService authenticationService;
 
-
-  public CashierService(CashierRepository cashierRepository, AuthenticationService authenticationService) {
+  public CashierService(
+      CashierRepository cashierRepository, AuthenticationService authenticationService) {
     this.cashierRepository = cashierRepository;
     this.authenticationService = authenticationService;
   }
@@ -43,5 +41,4 @@ public class CashierService {
     cashier.setRole(authenticationService.getRoleByUserId(id));
     return cashierRepository.save(cashier);
   }
-
 }

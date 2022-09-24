@@ -78,4 +78,9 @@ public class TableConstants {
   public static final String WAITER_RESTAURANT_TABLE_RELATIONSHIP = "atiende";
 
   public static final String AMOUNT = "cantidad";
+  public static final String QUESTION_ANSWER_ID = "id_pr";
+  public static final String QUESTION = "pregunta";
+  public static final String ANSWER = "respuesta";
+  public static final String ADMINISTRATOR_AS_FOREIGN = "id_admin";
+  public static final String QUESTION_ANSWER = "preg_resp";
 }
