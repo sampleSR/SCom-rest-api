@@ -15,4 +15,5 @@ public class EndPoint {
   public static final String STATS = API + "/stats";
   public static final String ORDERS = API + "/orders";
   public static final String QUESTION_ANSWERS = "/question-answers";
+  public static final String MISSION_VISION = "/mission-vision";
 }

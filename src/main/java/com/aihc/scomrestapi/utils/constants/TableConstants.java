@@ -83,4 +83,10 @@ public class TableConstants {
   public static final String ANSWER = "respuesta";
   public static final String ADMINISTRATOR_AS_FOREIGN = "id_admin";
   public static final String QUESTION_ANSWER = "preg_resp";
+  public static final String MISSION_VISION = "mis_vis";
+  public static final String MISSION_VISION_ID = "id_mv";
+  public static final String MISSION = "mision";
+  public static final String VISION = "vision";
+  public static final int MISSION_LENGTH = 512;
+  public static final int VISION_LENGTH = 512;
 }
