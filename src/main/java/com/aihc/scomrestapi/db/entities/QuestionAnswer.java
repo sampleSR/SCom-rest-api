@@ -1,6 +1,8 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,5 +31,6 @@ public class QuestionAnswer {
 
   @ManyToOne
   @JoinColumn(name = TableConstants.ADMINISTRATOR_AS_FOREIGN)
+  @JsonProperty(access = Access.READ_ONLY)
   private Administrator administrator;
 }
