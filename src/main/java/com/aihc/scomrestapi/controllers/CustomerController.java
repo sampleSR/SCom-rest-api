@@ -1,6 +1,5 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Customer;
 import com.aihc.scomrestapi.services.CustomerService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
@@ -28,8 +27,8 @@ public class CustomerController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Customer> updateUser(@PathVariable Integer id,
-      @RequestBody Customer customer) {
+  public ResponseEntity<Customer> updateUser(
+      @PathVariable Integer id, @RequestBody Customer customer) {
     return ResponseEntity.accepted().body(customerService.update(id, customer));
   }
 }

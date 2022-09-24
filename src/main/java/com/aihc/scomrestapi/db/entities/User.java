@@ -1,10 +1,8 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
-
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity

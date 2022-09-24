@@ -14,4 +14,5 @@ public class EndPoint {
   public static final String FOODS = API + "/foods";
   public static final String STATS = API + "/stats";
   public static final String ORDERS = API + "/orders";
+  public static final String QUESTION_ANSWERS = "/question-answers";
 }

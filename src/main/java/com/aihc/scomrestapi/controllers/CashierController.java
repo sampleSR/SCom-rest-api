@@ -1,11 +1,8 @@
 package com.aihc.scomrestapi.controllers;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Cashier;
-import com.aihc.scomrestapi.db.entities.Chef;
 import com.aihc.scomrestapi.services.CashierService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
-import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +27,8 @@ public class CashierController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Cashier> updateUser(@PathVariable Integer id,
-      @RequestBody Cashier cashier) {
+  public ResponseEntity<Cashier> updateUser(
+      @PathVariable Integer id, @RequestBody Cashier cashier) {
     return ResponseEntity.accepted().body(cashierService.update(id, cashier));
   }
-
 }

@@ -2,10 +2,9 @@ package com.aihc.scomrestapi.services;
 
 import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -24,18 +23,19 @@ public class UserService {
 
   public List<User> findAll() {
     List<User> users = userRepository.findAll();
-    users.forEach(user -> {
-      user.setRole(authenticationService.getRoleByUserId(user.getId()));
-    });
+    users.forEach(
+        user -> {
+          user.setRole(authenticationService.getRoleByUserId(user.getId()));
+        });
     return users;
   }
 
-    public User deleteById(final Integer id) {
-      Optional<User> userWrapper = userRepository.findById(id);
-      if (userWrapper.isEmpty()) {
-        throw new RuntimeException();
-      }
-      userRepository.delete(userWrapper.get());
-      return userWrapper.get();
+  public User deleteById(final Integer id) {
+    Optional<User> userWrapper = userRepository.findById(id);
+    if (userWrapper.isEmpty()) {
+      throw new RuntimeException();
     }
+    userRepository.delete(userWrapper.get());
+    return userWrapper.get();
+  }
 }
