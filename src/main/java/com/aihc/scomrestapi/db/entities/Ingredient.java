@@ -1,6 +1,8 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,8 +32,10 @@ public class Ingredient {
   private Double price;
 
   @OneToMany(mappedBy = "ingredient")
+  @JsonProperty(access = Access.READ_ONLY)
   Set<ChefIngredient> chefs;
 
   @OneToMany(mappedBy = "ingredient")
+  @JsonProperty(access = Access.READ_ONLY)
   Set<FoodIngredient> foods;
 }

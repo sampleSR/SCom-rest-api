@@ -2,6 +2,7 @@ package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.db.entities.keys.FoodIngredientKey;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import lombok.Data;
 @Data
 public class FoodIngredient {
 
-  @EmbeddedId private FoodIngredientKey id;
+  @JsonIgnore @EmbeddedId private FoodIngredientKey id;
 
   @ManyToOne
   @MapsId("foodId")
