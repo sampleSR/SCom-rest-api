@@ -89,4 +89,8 @@ public class TableConstants {
   public static final String VISION = "vision";
   public static final int MISSION_LENGTH = 512;
   public static final int VISION_LENGTH = 512;
+  public static final String IMAGE = "imagen";
+  public static final String IMAGE_ID = "id_i";
+  public static final String PUBLIC_ID = "public_id";
+  public static final String IMAGE_AS_FOREIGN = "id_imagen";
 }
