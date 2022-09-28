@@ -1,6 +1,8 @@
 package com.aihc.scomrestapi.controllers;
 
+import com.aihc.scomrestapi.db.entities.Bill;
 import com.aihc.scomrestapi.db.entities.User;
+import com.aihc.scomrestapi.services.BillService;
 import com.aihc.scomrestapi.services.UserService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
   private final UserService userService;
+  private final BillService billService;
 
-  UserController(UserService userService) {
+  public UserController(final UserService userService, final BillService billService) {
     this.userService = userService;
+    this.billService = billService;
   }
 
   @PostMapping
@@ -31,5 +35,10 @@ public class UserController {
   @DeleteMapping("/{id}")
   public ResponseEntity<User> deleteById(@PathVariable Integer id) {
     return ResponseEntity.ok(userService.deleteById(id));
+  }
+
+  @GetMapping("/{id}/bills")
+  public ResponseEntity<List<Bill>> getBillsByUserId(@PathVariable Integer id) {
+    return ResponseEntity.ok(billService.findByCustomerId(id));
   }
 }
