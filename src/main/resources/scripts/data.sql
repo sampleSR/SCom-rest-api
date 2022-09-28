@@ -73,7 +73,7 @@ INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (4, '2015-02-22 20:06:50', '2015-02-22 20:36:50', 4, 3, 2);
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (5, '2015-07-14 20:06:50', '2015-07-14 20:15:50', 5, 3, 2);
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (6, '2020-07-18 20:06:50', '2020-07-18 20:18:50', 6, 3, 1);
-INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (7, '2020-11-31 20:06:50', '2020-11-31 20:41:50', 7, 3, 3);
+INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (7, '2020-11-30 20:06:50', '2020-11-30 20:41:50', 7, 3, 3);
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (8, '2020-01-05 20:06:50', '2020-01-05 20:18:50', 8, 3, 4);
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (9, '2022-07-31 20:06:50', '2022-07-31 20:36:50', 8, 3, 5);
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, id_factura, id_chef, id_mesa) VALUES (10, '2022-08-02 20:06:50', '2022-08-02 20:45:50', 9, 3, 4);
