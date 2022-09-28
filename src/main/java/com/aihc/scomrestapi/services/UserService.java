@@ -1,5 +1,6 @@
 package com.aihc.scomrestapi.services;
 
+import com.aihc.scomrestapi.db.entities.Bill;
 import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
 import java.util.List;
@@ -12,9 +13,15 @@ public class UserService {
   private final UserRepository userRepository;
   private final AuthenticationService authenticationService;
 
-  public UserService(UserRepository userRepository, AuthenticationService authenticationService) {
+  private final BillService billService;
+
+  public UserService(
+      final UserRepository userRepository,
+      final AuthenticationService authenticationService,
+      final BillService billService) {
     this.userRepository = userRepository;
     this.authenticationService = authenticationService;
+    this.billService = billService;
   }
 
   public User save(User user) {
@@ -35,6 +42,12 @@ public class UserService {
     if (userWrapper.isEmpty()) {
       throw new RuntimeException();
     }
+    List<Bill> bills = billService.findByCustomerId(id);
+    bills.forEach(
+        bill -> {
+          bill.setCustomer(null);
+          billService.save(bill);
+        });
     userRepository.delete(userWrapper.get());
     return userWrapper.get();
   }
