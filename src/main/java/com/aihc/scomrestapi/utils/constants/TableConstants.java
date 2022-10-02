@@ -64,7 +64,7 @@ public class TableConstants {
   public static final String CUSTOMER_AS_FOREIGN = "id_cliente";
   public static final String CASHIER_AS_FOREIGN = "id_cajero";
   public static final String CHEF_AS_FOREIGN = "id_chef";
-  public static final String WAITER_AS_FOREIGN = "id_waiter";
+  public static final String WAITER_AS_FOREIGN = "id_camarero";
   public static final String BILL_AS_FOREIGN = "id_factura";
   public static final String RESTAURANT_TABLE_AS_FOREIGN = "id_mesa";
   public static final String INGREDIENT_AS_FOREIGN = "id_ingrediente";

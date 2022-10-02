@@ -1,6 +1,5 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Bill;
 import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
 import java.util.List;
@@ -42,12 +41,6 @@ public class UserService {
     if (userWrapper.isEmpty()) {
       throw new RuntimeException();
     }
-    List<Bill> bills = billService.findByCustomerId(id);
-    bills.forEach(
-        bill -> {
-          bill.setCustomer(null);
-          billService.save(bill);
-        });
     userRepository.delete(userWrapper.get());
     return userWrapper.get();
   }

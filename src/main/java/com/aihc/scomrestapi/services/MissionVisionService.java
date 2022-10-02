@@ -30,4 +30,8 @@ public class MissionVisionService {
     }
     return missionVisionList.get(missionVisionList.size() - 1);
   }
+
+  public List<MissionVision> findByAdminId(Integer adminId) {
+    return mvRepository.findAllByAdministrator_Id(adminId);
+  }
 }

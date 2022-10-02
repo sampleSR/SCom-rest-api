@@ -10,4 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
   List<Order> findByDateBillBetween(Date start, Date end);
+
+  List<Order> findAllByChef_Id(final Integer id);
+  // TODO: When customer is added, uncomment the line below
+  // List<Order> findAllByCustomer_Id(final Integer id);
 }

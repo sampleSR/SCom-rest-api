@@ -53,4 +53,8 @@ public class QuestionAnswerService {
   public List<QuestionAnswer> getAllWithAnswers() {
     return qaRepository.findByAnswerIsNotNull();
   }
+
+  public List<QuestionAnswer> findByAdminId(Integer id) {
+    return qaRepository.findAllByAdministrator_Id(id);
+  }
 }
