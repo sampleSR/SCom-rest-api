@@ -1,6 +1,5 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Bill;
 import com.aihc.scomrestapi.db.entities.User;
 import com.aihc.scomrestapi.repositories.UserRepository;
 import java.util.List;

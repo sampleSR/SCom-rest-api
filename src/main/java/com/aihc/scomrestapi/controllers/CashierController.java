@@ -31,4 +31,9 @@ public class CashierController {
       @PathVariable Integer id, @RequestBody Cashier cashier) {
     return ResponseEntity.accepted().body(cashierService.update(id, cashier));
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Cashier> deleteUser(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(cashierService.deleteById(id));
+  }
 }

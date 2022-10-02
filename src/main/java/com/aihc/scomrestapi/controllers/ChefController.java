@@ -30,4 +30,9 @@ public class ChefController {
   public ResponseEntity<Chef> updateUser(@PathVariable Integer id, @RequestBody Chef chef) {
     return ResponseEntity.accepted().body(chefService.update(id, chef));
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Chef> deleteUser(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(chefService.deleteById(id));
+  }
 }

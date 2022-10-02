@@ -1,11 +1,8 @@
 package com.aihc.scomrestapi.services;
 
-import com.aihc.scomrestapi.db.entities.Administrator;
 import com.aihc.scomrestapi.db.entities.Bill;
 import com.aihc.scomrestapi.db.entities.Cashier;
-import com.aihc.scomrestapi.db.entities.MissionVision;
-import com.aihc.scomrestapi.db.entities.QuestionAnswer;
-import com.aihc.scomrestapi.db.entities.User;
+import com.aihc.scomrestapi.repositories.BillRepository;
 import com.aihc.scomrestapi.repositories.CashierRepository;
 import java.util.List;
 import java.util.Optional;
@@ -16,16 +13,17 @@ public class CashierService {
 
   private final CashierRepository cashierRepository;
   private final AuthenticationService authenticationService;
-  private final BillService billService;
+  private final BillRepository billRepository;
   private final UserService userService;
 
-
-  public CashierService(CashierRepository cashierRepository,
-      AuthenticationService authenticationService, BillService billService,
+  public CashierService(
+      CashierRepository cashierRepository,
+      AuthenticationService authenticationService,
+      BillRepository billRepository,
       UserService userService) {
     this.cashierRepository = cashierRepository;
     this.authenticationService = authenticationService;
-    this.billService = billService;
+    this.billRepository = billRepository;
     this.userService = userService;
   }
 
@@ -59,15 +57,14 @@ public class CashierService {
     if (userWrapper.isEmpty()) {
       throw new RuntimeException();
     }
-    List<Bill> billList = billService.findByCashierId(id);
+    List<Bill> billList = billRepository.findAllByCashier_Id(id);
     billList.forEach(
         bill -> {
           bill.setCashier(null);
-          billService.save(bill);
+          billRepository.save(bill);
         });
 
     userService.deleteById(id);
     return userWrapper.get();
   }
-
 }

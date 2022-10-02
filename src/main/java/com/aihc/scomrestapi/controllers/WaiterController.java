@@ -30,4 +30,9 @@ public class WaiterController {
   public ResponseEntity<Waiter> updateUser(@PathVariable Integer id, @RequestBody Waiter waiter) {
     return ResponseEntity.accepted().body(waiterService.update(id, waiter));
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Waiter> deleteUser(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(waiterService.deleteById(id));
+  }
 }

@@ -31,4 +31,9 @@ public class AdministratorController {
       @PathVariable Integer id, @RequestBody Administrator administrator) {
     return ResponseEntity.accepted().body(administratorService.update(id, administrator));
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Administrator> deleteUser(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(administratorService.deleteById(id));
+  }
 }

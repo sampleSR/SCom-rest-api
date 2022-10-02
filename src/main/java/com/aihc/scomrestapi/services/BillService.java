@@ -22,6 +22,6 @@ public class BillService {
   }
 
   public List<Bill> findByCashierId(Integer id) {
-    return billRepository.findAllByCashier_Id();
+    return billRepository.findAllByCashier_Id(id);
   }
 }

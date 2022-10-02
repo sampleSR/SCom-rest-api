@@ -31,4 +31,9 @@ public class CustomerController {
       @PathVariable Integer id, @RequestBody Customer customer) {
     return ResponseEntity.accepted().body(customerService.update(id, customer));
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Customer> deleteUser(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(customerService.deleteById(id));
+  }
 }

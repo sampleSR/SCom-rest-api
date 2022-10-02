@@ -34,5 +34,4 @@ public class MissionVisionService {
   public List<MissionVision> findByAdminId(Integer adminId) {
     return mvRepository.findAllByAdministrator_Id(adminId);
   }
-
 }

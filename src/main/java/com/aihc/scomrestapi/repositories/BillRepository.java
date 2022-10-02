@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Integer> {
   List<Bill> findAllByCustomer_Id(final Integer customer_id);
+
   List<Bill> findAllByCashier_Id(final Integer id);
 }

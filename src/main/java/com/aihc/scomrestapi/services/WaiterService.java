@@ -10,11 +10,15 @@ public class WaiterService {
 
   private final WaiterRepository waiterRepository;
   private final AuthenticationService authenticationService;
+  private final UserService userService;
 
   public WaiterService(
-      WaiterRepository waiterRepository, AuthenticationService authenticationService) {
+      final WaiterRepository waiterRepository,
+      final AuthenticationService authenticationService,
+      final UserService userService) {
     this.waiterRepository = waiterRepository;
     this.authenticationService = authenticationService;
+    this.userService = userService;
   }
 
   public Waiter save(Waiter waiter) {
@@ -40,5 +44,15 @@ public class WaiterService {
     waiter.setPassword(waiterWrapper.get().getPassword());
     waiter.setRole(authenticationService.getRoleByUserId(id));
     return waiterRepository.save(waiter);
+  }
+
+  public Waiter deleteById(final Integer id) {
+    Optional<Waiter> userWrapper = waiterRepository.findById(id);
+    if (userWrapper.isEmpty()) {
+      throw new RuntimeException();
+    }
+
+    userService.deleteById(id);
+    return userWrapper.get();
   }
 }
