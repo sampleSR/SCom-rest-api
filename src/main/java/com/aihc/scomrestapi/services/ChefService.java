@@ -10,6 +10,7 @@ public class ChefService {
 
   private final ChefRepository chefRepository;
   private final AuthenticationService authenticationService;
+  private final UserService userService;
 
   public ChefService(ChefRepository chefRepository, AuthenticationService authenticationService) {
     this.chefRepository = chefRepository;

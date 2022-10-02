@@ -42,12 +42,6 @@ public class UserService {
     if (userWrapper.isEmpty()) {
       throw new RuntimeException();
     }
-    List<Bill> bills = billService.findByCustomerId(id);
-    bills.forEach(
-        bill -> {
-          bill.setCustomer(null);
-          billService.save(bill);
-        });
     userRepository.delete(userWrapper.get());
     return userWrapper.get();
   }

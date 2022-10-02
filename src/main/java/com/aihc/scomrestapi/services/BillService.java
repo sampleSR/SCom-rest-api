@@ -20,4 +20,8 @@ public class BillService {
   public Bill save(final Bill bill) {
     return billRepository.save(bill);
   }
+
+  public List<Bill> findByCashierId(Integer id) {
+    return billRepository.findAllByCashier_Id();
+  }
 }

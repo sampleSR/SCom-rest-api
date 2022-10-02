@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface QuestionAnswerRepository extends JpaRepository<QuestionAnswer, Integer> {
 
   List<QuestionAnswer> findByAnswerIsNotNull();
+  List<QuestionAnswer> findAllByAdministrator_Id(final Integer adminId);
+
 }
