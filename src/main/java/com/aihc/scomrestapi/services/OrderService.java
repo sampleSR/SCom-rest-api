@@ -4,6 +4,7 @@ import com.aihc.scomrestapi.db.entities.Order;
 import com.aihc.scomrestapi.db.entities.OrderProduct;
 import com.aihc.scomrestapi.db.entities.Product;
 import com.aihc.scomrestapi.models.OrderMdl;
+import com.aihc.scomrestapi.repositories.CustomerRepository;
 import com.aihc.scomrestapi.repositories.OrderRepository;
 import com.aihc.scomrestapi.repositories.ProductRepository;
 import java.util.ArrayList;
@@ -20,20 +21,24 @@ public class OrderService {
   private final OrderRepository orderRepository;
   private final ProductRepository productRepository;
   private final ChefService chefService;
+  private final CustomerService customerService;
   private final RestaurantTableService restaurantTableService;
 
-  public OrderService(
-      OrderRepository orderRepository,
-      ProductRepository productRepository,
-      ChefService chefService,
-      RestaurantTableService restaurantTableService) {
-    this.orderRepository = orderRepository;
-    this.productRepository = productRepository;
-    this.chefService = chefService;
-    this.restaurantTableService = restaurantTableService;
-  }
+    public OrderService(
+        final OrderRepository orderRepository,
+        final ProductRepository productRepository,
+        final ChefService chefService,
+        final CustomerService customerService,
+        final RestaurantTableService restaurantTableService)
+    {
+        this.orderRepository = orderRepository;
+        this.productRepository = productRepository;
+        this.chefService = chefService;
+        this.customerService = customerService;
+        this.restaurantTableService = restaurantTableService;
+    }
 
-  public Order save(OrderMdl orderMdl) {
+    public Order save(OrderMdl orderMdl) {
     Order order = new Order();
     order.setDate(new Date());
     if (orderMdl.getChef() != null) {
@@ -42,6 +47,9 @@ public class OrderService {
     if (orderMdl.getTable() != null) {
       order.setTable(restaurantTableService.findById(orderMdl.getTable().getId()));
     }
+      if (orderMdl.getCustomer() != null) {
+          order.setCustomer(customerService.findById(orderMdl.getCustomer().getId()));
+      }
     order
         .getProducts()
         .addAll(
@@ -63,17 +71,27 @@ public class OrderService {
     return orderRepository.findAll();
   }
 
-  public List<OrderMdl> findAllModels() {
-    List<Order> orders = orderRepository.findAll();
-    List<OrderMdl> orderMdlList = new ArrayList<>();
-    orders.stream()
-        .filter(order -> order.getBill() == null)
-        .forEach(
-            order -> {
-              orderMdlList.add(order.toModel());
-            });
-    return orderMdlList;
-  }
+//  public List<OrderMdl> findAllModels() {
+//    List<Order> orders = orderRepository.findAll();
+//    List<OrderMdl> orderMdlList = new ArrayList<>();
+//    orders.stream()
+//        .filter(order -> order.getBill() == null)
+//        .forEach(
+//            order -> {
+//              orderMdlList.add(order.toModel());
+//            });
+//    return orderMdlList;
+//  }
+    public List<OrderMdl> findAllModels() {
+        List<Order> orders = orderRepository.findAll();
+        List<OrderMdl> orderMdlList = new ArrayList<>();
+        orders
+            .forEach(
+                order -> {
+                    orderMdlList.add(order.toModel());
+                });
+        return orderMdlList;
+    }
 
   public Order update(Integer id, OrderMdl orderMdl) {
 

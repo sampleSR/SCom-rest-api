@@ -38,6 +38,9 @@ public class Product {
   @Column(name = TableConstants.PRICE)
   private Double price;
 
+  @Column(name = TableConstants.AVAILABLE)
+  private Boolean available;
+
   @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
   @JsonIgnore
   Set<OrderProduct> orders = new HashSet<>();

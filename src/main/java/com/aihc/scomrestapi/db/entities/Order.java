@@ -1,6 +1,8 @@
 package com.aihc.scomrestapi.db.entities;
 
+import com.aihc.scomrestapi.models.BillMdl;
 import com.aihc.scomrestapi.models.ChefMdl;
+import com.aihc.scomrestapi.models.CustomerMdl;
 import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.models.ProductMdl;
 import com.aihc.scomrestapi.models.RestaurantTableMdl;
@@ -50,6 +52,10 @@ public class Order {
   @JoinColumn(name = TableConstants.CHEF_AS_FOREIGN)
   private Chef chef;
 
+  @ManyToOne
+  @JoinColumn(name = TableConstants.CUSTOMER_AS_FOREIGN)
+  private Customer customer;
+
   @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
   Set<OrderProduct> products = new HashSet<>();
 
@@ -63,7 +69,12 @@ public class Order {
     if (chef != null) {
       orderMdl.setChef(new ChefMdl(chef));
     }
-    // TODO: Complete (perhaps) customer info
+    if (customer != null) {
+      orderMdl.setCustomer(new CustomerMdl(customer));
+    }
+    if (bill != null) {
+      orderMdl.setBill(new BillMdl(bill));
+    }
     Set<ProductMdl> productSet = new HashSet<>();
     products.forEach(
         p -> {
