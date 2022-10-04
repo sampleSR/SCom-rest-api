@@ -26,7 +26,5 @@ public class Food extends Product {
   @OneToMany(mappedBy = "food")
   Set<FoodIngredient> ingredients;
 
-  @Transient
-  private List<Integer> newIngredients;
-
+  @Transient private List<Integer> newIngredients;
 }

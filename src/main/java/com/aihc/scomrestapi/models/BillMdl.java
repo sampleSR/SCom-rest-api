@@ -2,7 +2,6 @@ package com.aihc.scomrestapi.models;
 
 import com.aihc.scomrestapi.db.entities.Bill;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +12,10 @@ import lombok.Setter;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class BillMdl
-{
-    private Integer id;
+public class BillMdl {
+  private Integer id;
 
-    public BillMdl(Bill bill) {
-        this.id = bill.getId();
-    }
+  public BillMdl(Bill bill) {
+    this.id = bill.getId();
+  }
 }

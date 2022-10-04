@@ -12,11 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class CustomerMdl
-{
-    private Integer id;
+public class CustomerMdl {
+  private Integer id;
 
-    public CustomerMdl(Customer customer) {
-        this.id = customer.getId();
-    }
+  public CustomerMdl(Customer customer) {
+    this.id = customer.getId();
+  }
 }

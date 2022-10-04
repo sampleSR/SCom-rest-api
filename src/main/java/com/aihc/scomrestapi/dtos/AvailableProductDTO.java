@@ -11,8 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class AvailableProductDTO
-{
-    private Integer id;
-    private Boolean available;
+public class AvailableProductDTO {
+  private Integer id;
+  private Boolean available;
 }

@@ -12,21 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(EndPoint.PRODUCTS)
-public class ProductController
-{
+public class ProductController {
 
-    private final ProductService productService;
+  private final ProductService productService;
 
-    public ProductController(final ProductService productService)
-    {
-        this.productService = productService;
-    }
+  public ProductController(final ProductService productService) {
+    this.productService = productService;
+  }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<?> switchAvailable(@RequestBody AvailableProductDTO newState,
-        @PathVariable Integer id) {
-        productService.switchAvailable(id, newState);
-        return ResponseEntity.accepted().body("Update successful");
-    }
-
+  @PatchMapping("/{id}")
+  public ResponseEntity<?> switchAvailable(
+      @RequestBody AvailableProductDTO newState, @PathVariable Integer id) {
+    productService.switchAvailable(id, newState);
+    return ResponseEntity.accepted().body("Update successful");
+  }
 }

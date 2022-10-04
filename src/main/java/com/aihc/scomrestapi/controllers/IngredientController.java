@@ -6,9 +6,4 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(EndPoint.INGREDIENTS)
-public class IngredientController
-{
-
-
-
-}
+public class IngredientController {}
