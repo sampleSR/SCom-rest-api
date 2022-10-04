@@ -1,11 +1,13 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,4 +25,6 @@ public class Food extends Product {
 
   @OneToMany(mappedBy = "food")
   Set<FoodIngredient> ingredients;
+
+  @Transient private List<Integer> newIngredients;
 }

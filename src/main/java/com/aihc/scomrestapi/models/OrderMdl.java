@@ -3,6 +3,7 @@ package com.aihc.scomrestapi.models;
 import com.aihc.scomrestapi.db.entities.Order;
 import com.aihc.scomrestapi.db.entities.OrderProduct;
 import com.aihc.scomrestapi.db.entities.Product;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import java.util.Date;
@@ -23,8 +24,15 @@ public class OrderMdl {
   @JsonProperty(access = Access.READ_ONLY)
   private Date date;
 
-  private RestaurantTableMdl table;
+  @JsonIgnoreProperties() private RestaurantTableMdl table;
+
+  @JsonProperty(access = Access.READ_ONLY)
   private ChefMdl chef;
+
+  @JsonProperty(access = Access.READ_ONLY)
+  private BillMdl bill;
+
+  private CustomerMdl customer;
   private Set<ProductMdl> products;
 
   public Order toEntity() {
