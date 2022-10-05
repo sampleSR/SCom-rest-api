@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -62,5 +63,15 @@ public class OrderController {
   public ResponseEntity<OrderProduct> deleteProduct(
       @PathVariable Integer productId, @PathVariable Integer orderId) {
     return ResponseEntity.ok(orderProductService.delete(orderId, productId));
+  }
+
+  @PatchMapping("/{id}")
+  public ResponseEntity<Order> confirm(@PathVariable Integer id, @RequestParam Boolean confirmed) {
+    return ResponseEntity.ok(orderService.updateConfirmed(id, confirmed));
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Order> delete(@PathVariable Integer id) {
+    return ResponseEntity.ok(orderService.delete(id));
   }
 }

@@ -7,7 +7,6 @@ import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.models.ProductMdl;
 import com.aihc.scomrestapi.models.RestaurantTableMdl;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;

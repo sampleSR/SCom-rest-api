@@ -90,6 +90,14 @@ public class OrderService {
     return orderMdlList;
   }
 
+  public Order getById(final Integer id) {
+    Optional<Order> orderOptional = orderRepository.findById(id);
+    if (orderOptional.isEmpty()) {
+      throw new RuntimeException();
+    }
+    return orderOptional.get();
+  }
+
   public Order update(Integer id, OrderMdl orderMdl) {
 
     Optional<Order> wrapper = orderRepository.findById(id);
@@ -125,5 +133,17 @@ public class OrderService {
               }
             });
     return orderRepository.save(order);
+  }
+
+  public Order updateConfirmed(final Integer id, final Boolean confirmed) {
+    Order order = getById(id);
+    order.setWaiterConfirmed(confirmed);
+    return orderRepository.save(order);
+  }
+
+  public Order delete(final Integer id) {
+    Order order = getById(id);
+    orderRepository.delete(order);
+    return order;
   }
 }

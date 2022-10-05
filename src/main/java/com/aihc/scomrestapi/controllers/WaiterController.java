@@ -1,8 +1,10 @@
 package com.aihc.scomrestapi.controllers;
 
+import com.aihc.scomrestapi.db.entities.Order;
 import com.aihc.scomrestapi.db.entities.Waiter;
 import com.aihc.scomrestapi.services.WaiterService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +26,11 @@ public class WaiterController {
   @GetMapping("/{id}")
   public ResponseEntity<Waiter> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(waiterService.findById(id));
+  }
+
+  @GetMapping("/{id}/orders/pending")
+  public ResponseEntity<List<Order>> getOrdersByWaiterId(@PathVariable Integer id) {
+    return ResponseEntity.ok(waiterService.findOrdersByWaiterId(id));
   }
 
   @PutMapping("/{id}")
