@@ -1,9 +1,12 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +38,7 @@ public class Ingredient {
   @JsonProperty(access = Access.READ_ONLY)
   Set<ChefIngredient> chefs;
 
-  @OneToMany(mappedBy = "ingredient")
-  @JsonProperty(access = Access.READ_ONLY)
-  Set<FoodIngredient> foods;
+  @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)
+  @JsonIgnore
+  Set<FoodIngredient> foods = new HashSet<>();
 }

@@ -1,6 +1,7 @@
 package com.aihc.scomrestapi.controllers;
 
 import com.aihc.scomrestapi.db.entities.Food;
+import com.aihc.scomrestapi.dtos.FoodCreationDTO;
 import com.aihc.scomrestapi.services.FoodService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;
@@ -21,10 +22,16 @@ public class FoodController {
     this.foodService = foodService;
   }
 
-  @PostMapping
+  @PostMapping("/previous")
   public ResponseEntity<Food> saveUser(@RequestBody Food food) {
 
     return ResponseEntity.ok(foodService.save(food));
+  }
+
+  @PostMapping
+  public ResponseEntity<Food> save(@RequestBody FoodCreationDTO food) {
+
+    return ResponseEntity.ok(foodService.saveFromDTO(food));
   }
 
   @GetMapping
