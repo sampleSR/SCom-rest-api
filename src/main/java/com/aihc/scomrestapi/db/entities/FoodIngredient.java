@@ -10,18 +10,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = TableConstants.FOOD_INGREDIENT_RELATIONSHIP)
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class FoodIngredient {
 
-  @JsonIgnore @EmbeddedId private FoodIngredientKey id;
+  @JsonIgnore @EmbeddedId private FoodIngredientKey id = new FoodIngredientKey();
 
   @ManyToOne
   @MapsId("foodId")
   @JoinColumn(name = TableConstants.FOOD_AS_FOREIGN)
+  @JsonIgnore
   private Food food;
 
   @ManyToOne

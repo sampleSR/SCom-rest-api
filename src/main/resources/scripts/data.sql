@@ -9,12 +9,12 @@ INSERT IGNORE INTO usuario (id_u, username, ap_paterno, ap_materno, nombre, emai
 INSERT IGNORE INTO chef (id_u, salario, especialidad, nacionalidad, cod_sanidad) VALUES (3, 20000, 'local', 'Boliviano', '15051ADC');
 
 -- Images
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (1, 'plato1', 'ux2s9m4owbzgr00c4dji', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126677/ux2s9m4owbzgr00c4dji.jpg');
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (2, 'plato2', 'booc0v9rc6sgsksp3ayl', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126696/booc0v9rc6sgsksp3ayl.png');
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (3, 'plato3', 'n9yknkg9yv9jdx7vgz2v', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126729/n9yknkg9yv9jdx7vgz2v.jpg');
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (4, 'bebida1', 'ifpd3rupuoux0xkcmggs', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126757/ifpd3rupuoux0xkcmggs.jpg');
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (5, 'bebida2', 'zcqb7bbdvzvdt5w1quxm', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126786/zcqb7bbdvzvdt5w1quxm.jpg');
-INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (6, 'bebida3', 'pxevf7g5q8zaw2fxbbb6', 'http://res.cloudinary.com/dedlan1fs/image/upload/v1664126797/pxevf7g5q8zaw2fxbbb6.jpg');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (1, 'plato1', 'b3invzperhdljka3xbzw', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934151/b3invzperhdljka3xbzw.jpg');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (2, 'plato2', 'u7vtvq6txfafxg09gseh', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934208/u7vtvq6txfafxg09gseh.png');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (3, 'plato3', 'q7qipy0xjk0j8irk11dr', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934222/q7qipy0xjk0j8irk11dr.jpg');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (4, 'bebida1', 'sevgcx66due0mfpzy6le', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934233/sevgcx66due0mfpzy6le.jpg');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (5, 'bebida2', 'rj6k9bqiol16qa6gzagf', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934242/rj6k9bqiol16qa6gzagf.jpg');
+INSERT IGNORE INTO scom_rest.imagen (id_i, nombre, public_id, url) VALUES (6, 'bebida3', 'okjtdtunxowxjjmhr5yy', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934252/okjtdtunxowxjjmhr5yy.jpg');
 
 -- Foods
 INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (1, true, 25.0, 1);

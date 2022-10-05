@@ -24,11 +24,12 @@ public class OrderMdl {
   @JsonProperty(access = Access.READ_ONLY)
   private Date date;
 
-  @JsonIgnoreProperties() private RestaurantTableMdl table;
+  private RestaurantTableMdl table;
 
   @JsonProperty(access = Access.READ_ONLY)
   private ChefMdl chef;
 
+  @JsonIgnoreProperties({"capacity"})
   @JsonProperty(access = Access.READ_ONLY)
   private BillMdl bill;
 
