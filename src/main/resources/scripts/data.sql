@@ -32,19 +32,24 @@ INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (6, tru
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (6, '0%', 'Coca-Cola', '1L');
 
 -- Customers
-INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia, username) VALUES (10, 'Zona: zona, Calle: calle', 'jorge@gmail.com', 'quispe', 'mamani', 'jorge', '1234', 'cliente');
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+                            username) VALUES (10, 'Zona: zona, Calle: calle', 'jorge@gmail.com', 'quispe', 'mamani', 'jorge', '1234', 'cliente1');
 INSERT IGNORE INTO cliente (id_u, nit) VALUES (10, 20000);
 
-INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia, username) VALUES (11, 'Zona: zona, Calle: calle', 'cege@gmail.com', 'lopez', 'mamani', 'cesar', '123', 'cliente');
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+                            username) VALUES (11, 'Zona: zona, Calle: calle', 'cege@gmail.com', 'lopez', 'mamani', 'cesar', '123', 'cliente2');
 INSERT IGNORE INTO cliente (id_u, nit) VALUES (11, 20001);
 
-INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia, username) VALUES (12, 'Zona: zona, Calle: calle', 'valge@gmail.com', 'quispe', 'mamani', 'valdez', '12', 'cliente');
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+                            username) VALUES (12, 'Zona: zona, Calle: calle', 'valge@gmail.com', 'quispe', 'mamani', 'valdez', '12', 'cliente3');
 INSERT IGNORE INTO cliente (id_u, nit) VALUES (12, 20002);
 
-INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia, username) VALUES (13, 'Zona: zona, Calle: calle', 'vicge@gmail.com', 'quispe', 'mamani', 'victor', '1111', 'cliente');
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+                            username) VALUES (13, 'Zona: zona, Calle: calle', 'vicge@gmail.com', 'quispe', 'mamani', 'victor', '1111', 'cliente4');
 INSERT IGNORE INTO cliente (id_u, nit) VALUES (13, 20003);
 
-INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia, username) VALUES (14, 'Zona: zona, Calle: calle', 'marce@gmail.com', 'quispe', 'mamani', 'marco', '12345', 'cliente');
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+                            username) VALUES (14, 'Zona: zona, Calle: calle', 'marce@gmail.com', 'quispe', 'mamani', 'marco', '12345', 'cliente5');
 INSERT IGNORE INTO cliente (id_u, nit) VALUES (14, 20004);
 
 -- Bills

@@ -94,4 +94,7 @@ public class TableConstants {
   public static final String PUBLIC_ID = "public_id";
   public static final String IMAGE_AS_FOREIGN = "id_imagen";
   public static final String AVAILABLE = "disponible";
+    public static final String DELIVERED = "entregado";
+  public static final String PREPARED = "preparado";
+  public static final String WAITER_CONFIRMED = "confirmado";
 }

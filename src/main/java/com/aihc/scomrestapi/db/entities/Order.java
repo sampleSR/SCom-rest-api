@@ -7,6 +7,7 @@ import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.models.ProductMdl;
 import com.aihc.scomrestapi.models.RestaurantTableMdl;
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,6 +40,15 @@ public class Order {
 
   @Column(name = TableConstants.DATE_BILL)
   private Date dateBill;
+
+  @Column(name = TableConstants.WAITER_CONFIRMED)
+  private Boolean waiterConfirmed = false;
+
+  @Column(name = TableConstants.PREPARED)
+  private Boolean prepared = false;
+
+  @Column(name = TableConstants.DELIVERED)
+  private Boolean delivered = false;
 
   @ManyToOne
   @JoinColumn(name = TableConstants.BILL_AS_FOREIGN)
