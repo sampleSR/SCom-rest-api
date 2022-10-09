@@ -29,8 +29,13 @@ public class WaiterController {
   }
 
   @GetMapping("/{id}/orders/pending")
-  public ResponseEntity<List<Order>> getOrdersByWaiterId(@PathVariable Integer id) {
+  public ResponseEntity<List<Order>> getPendingOrdersByWaiterId(@PathVariable Integer id) {
     return ResponseEntity.ok(waiterService.findOrdersByWaiterId(id));
+  }
+
+  @GetMapping("/{id}/orders/all-prepared")
+  public ResponseEntity<List<Order>> getPreparedOrdersByWaiterId(@PathVariable Integer id) {
+    return ResponseEntity.ok(waiterService.findPreparedOrdersByWaiterId(id));
   }
 
   @PutMapping("/{id}")

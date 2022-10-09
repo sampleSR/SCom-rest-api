@@ -72,4 +72,15 @@ public class WaiterService {
                     && !order.getWaiterConfirmed())
         .collect(Collectors.toList());
   }
+
+  public List<Order> findPreparedOrdersByWaiterId(final Integer id) {
+    List<Order> orders = orderRepository.findAll();
+    return orders.stream()
+        .filter(
+            order ->
+                order.getTable().getWaiters().stream().anyMatch(waiter -> waiter.getId().equals(id))
+                    && order.getPrepared()
+                    && !order.getDelivered())
+        .collect(Collectors.toList());
+  }
 }

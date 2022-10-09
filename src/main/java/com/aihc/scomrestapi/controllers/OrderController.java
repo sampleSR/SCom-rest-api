@@ -3,6 +3,7 @@ package com.aihc.scomrestapi.controllers;
 import com.aihc.scomrestapi.db.entities.Order;
 import com.aihc.scomrestapi.db.entities.OrderProduct;
 import com.aihc.scomrestapi.db.entities.keys.OrderProductKey;
+import com.aihc.scomrestapi.dtos.CustomerInfoForOrderDTO;
 import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.services.OrderProductService;
 import com.aihc.scomrestapi.services.OrderService;
@@ -42,9 +43,33 @@ public class OrderController {
     return ResponseEntity.ok(orderService.update(id, order));
   }
 
+  @PutMapping("/{id}/customer-info")
+  public ResponseEntity<Order> updateCustomerInfo(
+      @PathVariable Integer id, @RequestBody CustomerInfoForOrderDTO customerInfo) {
+    return ResponseEntity.ok(orderService.updateCustomerInfo(id, customerInfo));
+  }
+
   @GetMapping
   public ResponseEntity<List<OrderMdl>> getAll() {
     List<OrderMdl> orders = orderService.findAllModels();
+    return ResponseEntity.ok(orders);
+  }
+
+  @GetMapping("/all-confirmed")
+  public ResponseEntity<List<OrderMdl>> getConfirmedOrders() {
+    List<OrderMdl> orders = orderService.findConfirmedOrders();
+    return ResponseEntity.ok(orders);
+  }
+
+  @GetMapping("/billed-undelivered")
+  public ResponseEntity<List<OrderMdl>> getBilledUndeliveredOrders() {
+    List<OrderMdl> orders = orderService.findBilledUndeliveredOrders();
+    return ResponseEntity.ok(orders);
+  }
+
+  @GetMapping("/all-delivered")
+  public ResponseEntity<List<OrderMdl>> getDeliveredOrders() {
+    List<OrderMdl> orders = orderService.findDeliveredOrders();
     return ResponseEntity.ok(orders);
   }
 
@@ -65,9 +90,15 @@ public class OrderController {
     return ResponseEntity.ok(orderProductService.delete(orderId, productId));
   }
 
-  @PatchMapping("/{id}")
+  @PatchMapping("/{id}/deprecated")
   public ResponseEntity<Order> confirm(@PathVariable Integer id, @RequestParam Boolean confirmed) {
     return ResponseEntity.ok(orderService.updateConfirmed(id, confirmed));
+  }
+
+  @PatchMapping("/{id}")
+  public ResponseEntity<Order> switchFlag(
+      @PathVariable Integer id, @RequestParam String flag, @RequestParam Boolean value) {
+    return ResponseEntity.ok(orderService.updateFlag(id, flag, value));
   }
 
   @DeleteMapping("/{id}")
