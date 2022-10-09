@@ -1,9 +1,15 @@
 package com.aihc.scomrestapi.services;
 
+import com.aihc.scomrestapi.db.entities.Bill;
+import com.aihc.scomrestapi.db.entities.Cashier;
+import com.aihc.scomrestapi.db.entities.Customer;
 import com.aihc.scomrestapi.db.entities.Order;
 import com.aihc.scomrestapi.db.entities.OrderProduct;
 import com.aihc.scomrestapi.db.entities.Product;
+import com.aihc.scomrestapi.dtos.CustomerInfoForOrderDTO;
 import com.aihc.scomrestapi.models.OrderMdl;
+import com.aihc.scomrestapi.repositories.BillRepository;
+import com.aihc.scomrestapi.repositories.CashierRepository;
 import com.aihc.scomrestapi.repositories.OrderRepository;
 import com.aihc.scomrestapi.repositories.ProductRepository;
 import java.util.ArrayList;
@@ -21,6 +27,8 @@ public class OrderService {
   private final ProductRepository productRepository;
   private final ChefService chefService;
   private final CustomerService customerService;
+  private final CashierRepository cashierRepository;
+  private final BillRepository billRepository;
   private final RestaurantTableService restaurantTableService;
 
   public OrderService(
@@ -28,11 +36,15 @@ public class OrderService {
       final ProductRepository productRepository,
       final ChefService chefService,
       final CustomerService customerService,
+      final CashierRepository cashierRepository,
+      final BillRepository billRepository,
       final RestaurantTableService restaurantTableService) {
     this.orderRepository = orderRepository;
     this.productRepository = productRepository;
     this.chefService = chefService;
     this.customerService = customerService;
+    this.cashierRepository = cashierRepository;
+    this.billRepository = billRepository;
     this.restaurantTableService = restaurantTableService;
   }
 
@@ -90,6 +102,50 @@ public class OrderService {
     return orderMdlList;
   }
 
+  public List<OrderMdl> findConfirmedOrders() {
+    List<Order> orders = orderRepository.findAll();
+    List<OrderMdl> orderMdlList = new ArrayList<>();
+    orders.stream()
+        .filter(order -> order.getWaiterConfirmed() && order.getBill() == null)
+        .forEach(
+            order -> {
+              orderMdlList.add(order.toModel());
+            });
+    return orderMdlList;
+  }
+
+  public List<OrderMdl> findBilledUndeliveredOrders() {
+    List<Order> orders = orderRepository.findAll();
+    List<OrderMdl> orderMdlList = new ArrayList<>();
+    orders.stream()
+        .filter(order -> order.getBill() != null && !order.getDelivered() && !order.getPrepared())
+        .forEach(
+            order -> {
+              orderMdlList.add(order.toModel());
+            });
+    return orderMdlList;
+  }
+
+  public List<OrderMdl> findDeliveredOrders() {
+    List<Order> orders = orderRepository.findAll();
+    List<OrderMdl> orderMdlList = new ArrayList<>();
+    orders.stream()
+        .filter(order -> order.getDelivered())
+        .forEach(
+            order -> {
+              orderMdlList.add(order.toModel());
+            });
+    return orderMdlList;
+  }
+
+  public Order getById(final Integer id) {
+    Optional<Order> orderOptional = orderRepository.findById(id);
+    if (orderOptional.isEmpty()) {
+      throw new RuntimeException();
+    }
+    return orderOptional.get();
+  }
+
   public Order update(Integer id, OrderMdl orderMdl) {
 
     Optional<Order> wrapper = orderRepository.findById(id);
@@ -124,6 +180,52 @@ public class OrderService {
                 order.getProducts().add(orderProduct);
               }
             });
+    return orderRepository.save(order);
+  }
+
+  public Order updateConfirmed(final Integer id, final Boolean confirmed) {
+    Order order = getById(id);
+    order.setWaiterConfirmed(confirmed);
+    return orderRepository.save(order);
+  }
+
+  public Order delete(final Integer id) {
+    Order order = getById(id);
+    orderRepository.delete(order);
+    return order;
+  }
+
+  public Order updateCustomerInfo(final Integer id, final CustomerInfoForOrderDTO customerInfo) {
+    Order order = getById(id);
+    Optional<Cashier> cashierOptional = cashierRepository.findById(customerInfo.getIdCashier());
+    if (cashierOptional.isEmpty()) {
+      throw new RuntimeException();
+    }
+    Customer customer = customerService.findById(customerInfo.getIdCustomer());
+    Bill bill = new Bill();
+    bill.setCustomer(customer);
+    bill.setCashier(cashierOptional.get());
+    Bill savedBill = billRepository.save(bill);
+    customer.setNit(customerInfo.getNit());
+    order.setCustomer(customer);
+    order.setBill(savedBill);
+    order.setDateBill(new Date());
+    return orderRepository.save(order);
+  }
+
+  public Order updateFlag(final Integer id, final String flag, final Boolean value) {
+    Order order = getById(id);
+    switch (flag) {
+      case "confirmed":
+        order.setWaiterConfirmed(value);
+        break;
+      case "prepared":
+        order.setPrepared(value);
+        break;
+      case "delivered":
+        order.setDelivered(value);
+        break;
+    }
     return orderRepository.save(order);
   }
 }

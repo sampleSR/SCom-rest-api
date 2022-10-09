@@ -40,6 +40,15 @@ public class Order {
   @Column(name = TableConstants.DATE_BILL)
   private Date dateBill;
 
+  @Column(name = TableConstants.WAITER_CONFIRMED)
+  private Boolean waiterConfirmed = false;
+
+  @Column(name = TableConstants.PREPARED)
+  private Boolean prepared = false;
+
+  @Column(name = TableConstants.DELIVERED)
+  private Boolean delivered = false;
+
   @ManyToOne
   @JoinColumn(name = TableConstants.BILL_AS_FOREIGN)
   private Bill bill;

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class ChefService {
 
   private final ChefRepository chefRepository;
-
   private final OrderRepository orderRepository;
   private final AuthenticationService authenticationService;
   private final UserService userService;
