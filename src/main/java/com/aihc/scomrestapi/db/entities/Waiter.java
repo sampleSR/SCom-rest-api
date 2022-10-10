@@ -2,6 +2,7 @@ package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,5 +34,5 @@ public class Waiter extends User {
       joinColumns = @JoinColumn(name = TableConstants.WAITER_AS_FOREIGN),
       inverseJoinColumns = @JoinColumn(name = TableConstants.RESTAURANT_TABLE_AS_FOREIGN))
   @JsonIgnore
-  Set<RestaurantTable> tables;
+  Set<RestaurantTable> tables = new HashSet<>();
 }

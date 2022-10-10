@@ -1,6 +1,7 @@
 package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +31,10 @@ public class RestaurantTable {
 
   @Column(name = TableConstants.NUMBER)
   private String number;
+
+  @Column(name = TableConstants.DELETED)
+  @JsonIgnore
+  private Boolean deleted = false;
 
   @ManyToMany(mappedBy = "tables")
   Set<Waiter> waiters;
