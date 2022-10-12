@@ -15,5 +15,6 @@ public class ProductMdl {
   private String type;
   private String nameOrBrand;
   private String description;
+  private Double price;
   private Integer amount;
 }

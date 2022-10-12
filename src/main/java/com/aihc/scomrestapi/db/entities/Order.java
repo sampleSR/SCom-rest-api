@@ -90,6 +90,7 @@ public class Order {
           ProductMdl productMdl = new ProductMdl();
           productMdl.setId(p.getProduct().getId());
           productMdl.setAmount(p.getAmount());
+          productMdl.setPrice(p.getProduct().getPrice());
           if (p.getProduct() instanceof Food) {
             productMdl.setType("food");
             productMdl.setNameOrBrand(((Food) p.getProduct()).getName());
