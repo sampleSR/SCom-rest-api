@@ -12,9 +12,7 @@ import javax.persistence.MapsId;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Entity
-@Table(name = TableConstants.CHEF_INGREDIENT_RELATIONSHIP)
-@Data
+
 public class ChefIngredient {
 
   @EmbeddedId private ChefIngredientKey id;
@@ -31,4 +29,7 @@ public class ChefIngredient {
 
   @Column(name = TableConstants.DATE)
   private Date date;
+
+  @Column(name = TableConstants.AMOUNT)
+  private Integer amount;
 }

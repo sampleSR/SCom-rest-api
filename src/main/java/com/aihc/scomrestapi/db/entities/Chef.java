@@ -30,5 +30,5 @@ public class Chef extends User {
 
   @OneToMany(mappedBy = "chef")
   @JsonIgnore
-  Set<ChefIngredient> ingredients;
+  Set<IngredientRequest> requests;
 }

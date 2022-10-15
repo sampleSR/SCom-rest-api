@@ -29,16 +29,21 @@ public class Ingredient {
   @Column(name = TableConstants.NAME)
   private String name;
 
-  private Integer stock;
+  private Integer stock = 0;
 
   @Column(name = TableConstants.PRICE)
   private Double price;
 
   @OneToMany(mappedBy = "ingredient")
   @JsonProperty(access = Access.READ_ONLY)
-  Set<ChefIngredient> chefs;
+  Set<IngredientRequest> requests;
 
   @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)
   @JsonIgnore
   Set<FoodIngredient> foods = new HashSet<>();
+
+    public void addStock(Integer amount)
+    {
+      stock = stock + amount;
+    }
 }
