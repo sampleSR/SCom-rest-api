@@ -42,8 +42,7 @@ public class Ingredient {
   @JsonIgnore
   Set<FoodIngredient> foods = new HashSet<>();
 
-    public void addStock(Integer amount)
-    {
-      stock = stock + amount;
-    }
+  public void addStock(Integer amount) {
+    stock = stock + amount;
+  }
 }

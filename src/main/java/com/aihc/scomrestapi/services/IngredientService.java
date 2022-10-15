@@ -22,8 +22,10 @@ public class IngredientService {
   private final IngredientRequestRepository requestRepository;
   private final ChefRepository chefRepository;
 
-  public IngredientService(final IngredientRepository ingredientRepository,
-      final IngredientRequestRepository requestRepository, final ChefRepository chefRepository) {
+  public IngredientService(
+      final IngredientRepository ingredientRepository,
+      final IngredientRequestRepository requestRepository,
+      final ChefRepository chefRepository) {
     this.ingredientRepository = ingredientRepository;
     this.requestRepository = requestRepository;
     this.chefRepository = chefRepository;
@@ -64,30 +66,38 @@ public class IngredientService {
         .collect(Collectors.toList());
   }
 
-    public void saveRequest(final RequestIngredientsDTO request)
-    {
+  public void saveRequest(final RequestIngredientsDTO request) {
 
-      request.getNewIngredients().forEach(newIngredient -> {
-        Ingredient ingredient = new Ingredient();
-        ingredient.setName(newIngredient.getName());
-        ingredient.setPrice(newIngredient.getPrice());
-        ingredient.setStock(newIngredient.getStock());
-        ingredient = ingredientRepository.save(ingredient);
-        request.getIngredients().add(new IngredientPerFoodDTO(ingredient.getId(),
-            newIngredient.getAmount()));
-      });
+    request
+        .getNewIngredients()
+        .forEach(
+            newIngredient -> {
+              Ingredient ingredient = new Ingredient();
+              ingredient.setName(newIngredient.getName());
+              ingredient.setPrice(newIngredient.getPrice());
+              ingredient.setStock(newIngredient.getStock());
+              ingredient = ingredientRepository.save(ingredient);
+              request
+                  .getIngredients()
+                  .add(new IngredientPerFoodDTO(ingredient.getId(), newIngredient.getAmount()));
+            });
 
-      Chef chef = chefRepository.findById(request.getChefId()).get();
-      request.getIngredients().forEach(ingredient -> {
-        IngredientRequest newRequest = new IngredientRequest();
-        Ingredient ingredientFromRepo = ingredientRepository.findById(ingredient.getId()).get();
-        ingredientFromRepo.addStock(ingredient.getAmount());
-//        ingredientFromRepo.setStock(ingredientFromRepo.getStock() + ingredient.getAmount());
-        newRequest.setIngredient(ingredientFromRepo);
-        newRequest.setChef(chef);
-        newRequest.setDate(new Date());
-        newRequest.setAmount(ingredient.getAmount());
-        requestRepository.save(newRequest);
-      });
-    }
+    Chef chef = chefRepository.findById(request.getChefId()).get();
+    request
+        .getIngredients()
+        .forEach(
+            ingredient -> {
+              IngredientRequest newRequest = new IngredientRequest();
+              Ingredient ingredientFromRepo =
+                  ingredientRepository.findById(ingredient.getId()).get();
+              ingredientFromRepo.addStock(ingredient.getAmount());
+              //        ingredientFromRepo.setStock(ingredientFromRepo.getStock() +
+              // ingredient.getAmount());
+              newRequest.setIngredient(ingredientFromRepo);
+              newRequest.setChef(chef);
+              newRequest.setDate(new Date());
+              newRequest.setAmount(ingredient.getAmount());
+              requestRepository.save(newRequest);
+            });
+  }
 }

@@ -7,11 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RequestIngredientsDTO
-{
+public class RequestIngredientsDTO {
 
-    private List<IngredientPerFoodDTO> ingredients = new ArrayList<>();
-    private List<NewIngredientPerFoodDTO> newIngredients = new ArrayList<>();
-    private Integer chefId;
-
+  private List<IngredientPerFoodDTO> ingredients = new ArrayList<>();
+  private List<NewIngredientPerFoodDTO> newIngredients = new ArrayList<>();
+  private Integer chefId;
 }
