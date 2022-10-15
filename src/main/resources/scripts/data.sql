@@ -31,11 +31,11 @@ INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nom
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (1, 7369, 2030, 20);
 
 -- Waiter >-< Table Relationship
-INSERT IGNORE INTO atiende(id_camarero, id_mesa) VALUES (16, 1);
-INSERT IGNORE INTO atiende(id_camarero, id_mesa) VALUES (17, 2);
-INSERT IGNORE INTO atiende(id_camarero, id_mesa) VALUES (18, 3);
-INSERT IGNORE INTO atiende(id_camarero, id_mesa) VALUES (19, 4);
-INSERT IGNORE INTO atiende(id_camarero, id_mesa) VALUES (20, 5);
+INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (16, 1);
+INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (17, 2);
+INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (18, 3);
+INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (19, 4);
+INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (20, 5);
 
 -- Images
 INSERT IGNORE INTO imagen (id_i, nombre, public_id, url) VALUES (1, 'plato1', 'b3invzperhdljka3xbzw', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934151/b3invzperhdljka3xbzw.jpg');
@@ -145,9 +145,21 @@ INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (9, 2, 2);
 INSERT IGNORE INTO tiene (id_pedido, id_producto, cantidad) VALUES (10, 1, 3);
 
 -- Questions&Answers
-INSERT IGNORE INTO preg_resp(id_pr, pregunta, respuesta, id_admin) VALUES (1,'¿Es posible pedir platos con un mes de anticipación?','Si es posible hacerlo mediante nuestra aplicación móvil.',1);
-INSERT IGNORE INTO preg_resp(id_pr, pregunta, respuesta, id_admin) VALUES (2,'¿En que horario podemos comer o cenar en el restaurante?','Todos los días de 13:00 a 15:30h. Y por las noches, viernes y sábado de 20:00h a 22:30h.',1);
-INSERT IGNORE INTO preg_resp(id_pr, pregunta, respuesta, id_admin) VALUES (3,'¿Cuáles son las medidas COVID-19 que debo conocer antes de acudir a las instalaciones?','El restaurante fue preparado como un lugar seguro en cumplimiento de todas las medidas de prevención, los máximos niveles de seguridad. Todo el centro se somete periódicamente a intervenciones de limpieza, higiene y desinfección. La colaboración de los usuarios es fundamental de cara a garantizar la efectividad de estas medidas.',1);
+INSERT IGNORE INTO preg_resp (id_pr, pregunta, respuesta, id_admin) VALUES (1,'¿Es posible pedir
+platos con un mes de anticipación?','Si es posible hacerlo mediante nuestra aplicación móvil.',1);
+INSERT IGNORE INTO preg_resp (id_pr, pregunta, respuesta, id_admin) VALUES (2,'¿En que horario
+podemos comer o cenar en el restaurante?','Todos los días de 13:00 a 15:30h. Y por las noches,
+viernes y sábado de 20:00h a 22:30h.',1);
+INSERT IGNORE INTO preg_resp (id_pr, pregunta, respuesta, id_admin) VALUES (3,'¿Cuáles son las
+medidas COVID-19 que debo conocer antes de acudir a las instalaciones?','El restaurante fue
+preparado como un lugar seguro en cumplimiento de todas las medidas de prevención, los máximos
+niveles de seguridad. Todo el centro se somete periódicamente a intervenciones de limpieza,
+higiene y desinfección. La colaboración de los usuarios es fundamental de cara a garantizar la
+efectividad de estas medidas.',1);
 
 -- Mission&Vision
-INSERT IGNORE INTO mis_vis(id_mv, fecha, mision, vision, id_admin) VALUES (1,'2022-02-02','Superar las expectativas de nuestros clientes de forma tal que nuestro nombre sea conocido como una experiencia memorable. Ser opción destacable y diferente.','Ser reconocidos entre los mejores restaurantes a nivel local y nacional por nuestra oferta gastronómica, ambiente y atención.',1);
+INSERT IGNORE INTO mis_vis(id_mv, fecha, mision, vision, id_admin) VALUES (1,'2022-02-02',
+                                                                           'Superar las
+expectativas de nuestros clientes de forma tal que nuestro nombre sea conocido como una
+experiencia memorable. Ser opción destacable y diferente.','Ser reconocidos entre los mejores
+restaurantes a nivel local y nacional por nuestra oferta gastronómica, ambiente y atención.',1);

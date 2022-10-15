@@ -106,7 +106,12 @@ public class OrderService {
     List<Order> orders = orderRepository.findAll();
     List<OrderMdl> orderMdlList = new ArrayList<>();
     orders.stream()
-        .filter(order -> order.getWaiterConfirmed() && order.getBill() == null)
+        .filter(
+            order ->
+                order.getWaiterConfirmed()
+                    && !order.getPrepared()
+                    && !order.getDelivered()
+                    && order.getBill() == null)
         .forEach(
             order -> {
               orderMdlList.add(order.toModel());
@@ -130,7 +135,7 @@ public class OrderService {
     List<Order> orders = orderRepository.findAll();
     List<OrderMdl> orderMdlList = new ArrayList<>();
     orders.stream()
-        .filter(order -> order.getDelivered())
+        .filter(order -> order.getDelivered() && order.getBill() == null)
         .forEach(
             order -> {
               orderMdlList.add(order.toModel());
