@@ -11,7 +11,7 @@ import lombok.Setter;
 public class NewIngredientPerFoodDTO {
   private String name;
   private Double price;
-  private Integer stock;
+  private Integer stock = 0;
   private Integer amount;
 
   public Ingredient toEntity() {

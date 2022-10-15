@@ -98,4 +98,5 @@ public class TableConstants {
   public static final String PREPARED = "preparado";
   public static final String WAITER_CONFIRMED = "confirmado";
   public static final String DELETED = "eliminado";
+  public static final String REQUEST_ID = "id_s";
 }

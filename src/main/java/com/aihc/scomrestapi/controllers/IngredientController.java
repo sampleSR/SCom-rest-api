@@ -3,6 +3,7 @@ package com.aihc.scomrestapi.controllers;
 import com.aihc.scomrestapi.db.entities.Ingredient;
 import com.aihc.scomrestapi.dtos.IngredientBasicInfoDTO;
 import com.aihc.scomrestapi.dtos.IngredientCreationDTO;
+import com.aihc.scomrestapi.dtos.RequestIngredientsDTO;
 import com.aihc.scomrestapi.services.IngredientService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;
@@ -30,6 +31,12 @@ public class IngredientController {
   @PostMapping
   public ResponseEntity<Ingredient> create(@RequestBody IngredientCreationDTO ingredient) {
     return new ResponseEntity<>(ingredientService.save(ingredient.toEntity()), HttpStatus.CREATED);
+  }
+
+  @PostMapping("request")
+  public ResponseEntity<String> requestIngredients(@RequestBody RequestIngredientsDTO request) {
+    ingredientService.saveRequest(request);
+    return new ResponseEntity<>("Successful ingredients request", HttpStatus.OK);
   }
 
   @GetMapping
