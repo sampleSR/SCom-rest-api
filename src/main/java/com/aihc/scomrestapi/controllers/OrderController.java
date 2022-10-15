@@ -61,12 +61,6 @@ public class OrderController {
     return ResponseEntity.ok(orders);
   }
 
-  @GetMapping("/billed-undelivered")
-  public ResponseEntity<List<OrderMdl>> getBilledUndeliveredOrders() {
-    List<OrderMdl> orders = orderService.findBilledUndeliveredOrders();
-    return ResponseEntity.ok(orders);
-  }
-
   @GetMapping("/all-delivered")
   public ResponseEntity<List<OrderMdl>> getDeliveredOrders() {
     List<OrderMdl> orders = orderService.findDeliveredOrders();
@@ -88,11 +82,6 @@ public class OrderController {
   public ResponseEntity<OrderProduct> deleteProduct(
       @PathVariable Integer productId, @PathVariable Integer orderId) {
     return ResponseEntity.ok(orderProductService.delete(orderId, productId));
-  }
-
-  @PatchMapping("/{id}/deprecated")
-  public ResponseEntity<Order> confirm(@PathVariable Integer id, @RequestParam Boolean confirmed) {
-    return ResponseEntity.ok(orderService.updateConfirmed(id, confirmed));
   }
 
   @PatchMapping("/{id}")
