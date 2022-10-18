@@ -9,26 +9,33 @@ INSERT IGNORE INTO cajero (id_u, salario, titulo) VALUES (2, 20000, 'lic');
 INSERT IGNORE INTO usuario (id_u, username, ap_paterno, ap_materno, nombre, email, contrasenia, direccion) VALUES (3, 'chef', '', '', 'chef', 'chef@gmail.com', 'chef', 'Zona: zona, Calle: calle');
 INSERT IGNORE INTO chef (id_u, salario, especialidad, nacionalidad, cod_sanidad) VALUES (3, 20000, 'local', 'Boliviano', '15051ADC');
 -- Waiters
-INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
                              username) VALUES (16, 'Zona: zona, Calle: calle', 'Liz@gmail.com',
                                                'choque', 'mamani', 'liz', 'waiter', 'waiter');
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (3, 1875, 2030, 16);
-INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
                              username) VALUES (17, 'Zona: zona, Calle: calle', 'fidel@gmail.com',
                                              'Ramos', 'quispe', 'Fidel', 'waiter2', 'waiter2');
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (3, 7845, 2030, 17);
-INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
                              username) VALUES (18, 'Zona: zona, Calle: calle', 'freddy@gmail.com',
                                              'condori', 'mamani', 'Freddy', 'waiter3', 'waiter3');
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (4, 2254, 2030, 18);
-INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
                              username) VALUES (19, 'Zona: zona, Calle: calle', 'marta@gmail.com',
                                              'Colque', 'flores', 'Marta', 'waiter4', 'waiter4');
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (2, 8045, 2030, 19);
-INSERT IGNORE  INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
+INSERT IGNORE INTO usuario (id_u, direccion, email, ap_paterno, ap_materno, nombre, contrasenia,
                              username) VALUES (20, 'Zona: zona, Calle: calle', 'norma@gmail.com',
                                              'Mendoza', 'aliaga', 'Norma', 'waiter5', 'waiter5');
 INSERT IGNORE INTO camarero(experiencia, cod_sanidad, salario, id_u) VALUES (1, 7369, 2030, 20);
+
+-- Restaurant Tables
+INSERT IGNORE INTO mesa (id_m, capacidad, numero, eliminado) VALUES (1, 4, '1', false);
+INSERT IGNORE INTO mesa (id_m, capacidad, numero, eliminado) VALUES (2, 2, '2', false);
+INSERT IGNORE INTO mesa (id_m, capacidad, numero, eliminado) VALUES (3, 4, '3', false);
+INSERT IGNORE INTO mesa (id_m, capacidad, numero, eliminado) VALUES (4, 6, '4', false);
+INSERT IGNORE INTO mesa (id_m, capacidad, numero, eliminado) VALUES (5, 6, '5', false);
 
 -- Waiter >-< Table Relationship
 INSERT IGNORE INTO atiende (id_camarero, id_mesa) VALUES (16, 1);
@@ -87,13 +94,6 @@ INSERT IGNORE INTO factura (id_f, id_cajero, id_cliente) VALUES (2, 2, 10);
 INSERT IGNORE INTO factura (id_f, id_cajero, id_cliente) VALUES (3, 2, 11);
 INSERT IGNORE INTO factura (id_f, id_cajero, id_cliente) VALUES (4, 2, 11);
 INSERT IGNORE INTO factura (id_f, id_cajero, id_cliente) VALUES (5, 2, 12);
-
--- Restaurant Tables
-INSERT IGNORE INTO mesa (id_m, capacidad, numero) VALUES (1, 4, '1');
-INSERT IGNORE INTO mesa (id_m, capacidad, numero) VALUES (2, 2, '2');
-INSERT IGNORE INTO mesa (id_m, capacidad, numero) VALUES (3, 4, '3');
-INSERT IGNORE INTO mesa (id_m, capacidad, numero) VALUES (4, 6, '4');
-INSERT IGNORE INTO mesa (id_m, capacidad, numero) VALUES (5, 6, '5');
 
 -- Orders
 INSERT IGNORE INTO pedido (id_pe, fecha, fecha_factura, entregado, preparado, confirmado,

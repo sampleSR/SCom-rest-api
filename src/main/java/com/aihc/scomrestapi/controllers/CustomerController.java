@@ -1,8 +1,11 @@
 package com.aihc.scomrestapi.controllers;
 
 import com.aihc.scomrestapi.db.entities.Customer;
+import com.aihc.scomrestapi.models.OrderMdl;
 import com.aihc.scomrestapi.services.CustomerService;
+import com.aihc.scomrestapi.services.OrderService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
   private final CustomerService customerService;
+  private final OrderService orderService;
 
-  public CustomerController(CustomerService customerService) {
+  public CustomerController(CustomerService customerService, OrderService orderService) {
     this.customerService = customerService;
+    this.orderService = orderService;
   }
 
   @PostMapping
@@ -24,6 +29,11 @@ public class CustomerController {
   @GetMapping("/{id}")
   public ResponseEntity<Customer> getById(@PathVariable Integer id) {
     return ResponseEntity.ok(customerService.findById(id));
+  }
+
+  @GetMapping("/{id}/orders/not-billed")
+  public ResponseEntity<List<OrderMdl>> getNotBilledOrdersByCustomerId(@PathVariable Integer id) {
+    return ResponseEntity.ok(orderService.findNotBilledOrdersByUserId(id));
   }
 
   @PutMapping("/{id}")
