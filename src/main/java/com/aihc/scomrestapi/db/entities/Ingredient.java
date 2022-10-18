@@ -2,8 +2,6 @@ package com.aihc.scomrestapi.db.entities;
 
 import com.aihc.scomrestapi.utils.constants.TableConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -35,7 +33,7 @@ public class Ingredient {
   private Double price;
 
   @OneToMany(mappedBy = "ingredient")
-  @JsonProperty(access = Access.READ_ONLY)
+  @JsonIgnore
   Set<IngredientRequest> requests;
 
   @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)

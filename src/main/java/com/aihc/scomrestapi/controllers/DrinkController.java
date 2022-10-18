@@ -6,7 +6,9 @@ import com.aihc.scomrestapi.utils.constants.EndPoint;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +23,14 @@ public class DrinkController {
   }
 
   @PostMapping
-  public ResponseEntity<Drink> saveUser(@RequestBody Drink drink) {
+  public ResponseEntity<Drink> save(@RequestBody Drink drink) {
 
+    return ResponseEntity.ok(drinkService.save(drink));
+  }
+
+  @PutMapping("{id}")
+  public ResponseEntity<Drink> update(@PathVariable Integer id, @RequestBody Drink drink) {
+    drink.setId(id);
     return ResponseEntity.ok(drinkService.save(drink));
   }
 

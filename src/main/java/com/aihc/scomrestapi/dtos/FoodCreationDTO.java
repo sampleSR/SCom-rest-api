@@ -1,6 +1,7 @@
 package com.aihc.scomrestapi.dtos;
 
 import com.aihc.scomrestapi.db.entities.Food;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class FoodCreationDTO {
 
+  @JsonIgnore private Integer id;
   private Double price;
   private Boolean available;
   private String name;

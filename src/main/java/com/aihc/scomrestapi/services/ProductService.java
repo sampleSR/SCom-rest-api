@@ -28,4 +28,19 @@ public class ProductService {
     product.setAvailable(newState.getAvailable());
     productRepository.save(product);
   }
+
+  public Product getById(final Integer id) {
+    Optional<Product> optionalProduct = productRepository.findById(id);
+    if (optionalProduct.isEmpty()) {
+      throw new RuntimeException();
+    }
+    return optionalProduct.get();
+  }
+
+  public Product deleteById(final Integer id) {
+    Product product = getById(id);
+    product.setDeleted(true);
+    productRepository.save(product);
+    return product;
+  }
 }

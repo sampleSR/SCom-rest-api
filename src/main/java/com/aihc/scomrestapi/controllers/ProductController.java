@@ -4,6 +4,7 @@ import com.aihc.scomrestapi.dtos.AvailableProductDTO;
 import com.aihc.scomrestapi.services.ProductService;
 import com.aihc.scomrestapi.utils.constants.EndPoint;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,5 +26,10 @@ public class ProductController {
       @RequestBody AvailableProductDTO newState, @PathVariable Integer id) {
     productService.switchAvailable(id, newState);
     return ResponseEntity.accepted().body("Update successful");
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<?> delete(@PathVariable Integer id) {
+    return ResponseEntity.ok().body(productService.deleteById(id));
   }
 }

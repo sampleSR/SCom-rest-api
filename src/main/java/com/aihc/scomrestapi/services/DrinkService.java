@@ -6,6 +6,7 @@ import com.aihc.scomrestapi.repositories.DrinkRepository;
 import com.aihc.scomrestapi.repositories.ImageRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,6 +27,7 @@ public class DrinkService {
       throw new RuntimeException();
     }
     drink.setImage(imageOptional.get());
+    drink.setImageId(imageOptional.get().getId());
     Drink storedDrink = drinkRepository.save(drink);
     storedDrink.setUrlImage(drink.getImage().getUrl());
     return storedDrink;
@@ -33,7 +35,11 @@ public class DrinkService {
 
   public List<Drink> findAll() {
     List<Drink> drinks = drinkRepository.findAll();
-    drinks.forEach(drink -> drink.setUrlImage(drink.getImage().getUrl()));
-    return drinks;
+    drinks.forEach(
+        drink -> {
+          drink.setUrlImage(drink.getImage().getUrl());
+          drink.setImageId(drink.getImage().getId());
+        });
+    return drinks.stream().filter(drink -> !drink.getDeleted()).collect(Collectors.toList());
   }
 }
