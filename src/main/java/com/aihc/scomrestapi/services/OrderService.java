@@ -228,4 +228,16 @@ public class OrderService {
     }
     return orderRepository.save(order);
   }
+
+  public List<OrderMdl> findNotBilledOrdersByUserId(Integer id) {
+    List<Order> orders = orderRepository.findAll();
+    List<OrderMdl> orderMdlList = new ArrayList<>();
+    orders.stream()
+        .filter(order -> Objects.equals(order.getCustomer().getId(), id) && order.getBill() == null)
+        .forEach(
+            order -> {
+              orderMdlList.add(order.toModel());
+            });
+    return orderMdlList;
+  }
 }
