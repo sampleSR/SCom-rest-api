@@ -41,6 +41,12 @@ public class Product {
   @Column(name = TableConstants.AVAILABLE)
   private Boolean available;
 
+  @Column(name = TableConstants.DELETED)
+  private Boolean deleted = false;
+
+  @Column(name = TableConstants.DESCRIPTION)
+  private String description = "";
+
   @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
   @JsonIgnore
   Set<OrderProduct> orders = new HashSet<>();
@@ -49,9 +55,7 @@ public class Product {
   @Transient
   private String urlImage;
 
-  @JsonProperty(access = Access.WRITE_ONLY)
-  @Transient
-  private Integer imageId;
+  @Transient private Integer imageId;
 
   @OneToOne
   @JoinColumn(name = TableConstants.IMAGE_AS_FOREIGN)

@@ -91,8 +91,6 @@ public class IngredientService {
               Ingredient ingredientFromRepo =
                   ingredientRepository.findById(ingredient.getId()).get();
               ingredientFromRepo.addStock(ingredient.getAmount());
-              //        ingredientFromRepo.setStock(ingredientFromRepo.getStock() +
-              // ingredient.getAmount());
               newRequest.setIngredient(ingredientFromRepo);
               newRequest.setChef(chef);
               newRequest.setDate(new Date());

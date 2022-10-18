@@ -53,18 +53,24 @@ INSERT IGNORE INTO imagen (id_i, nombre, public_id, url) VALUES (5, 'bebida2', '
 INSERT IGNORE INTO imagen (id_i, nombre, public_id, url) VALUES (6, 'bebida3', 'okjtdtunxowxjjmhr5yy', 'http://res.cloudinary.com/dcm0rx3pb/image/upload/v1664934252/okjtdtunxowxjjmhr5yy.jpg');
 
 -- Foods
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (1, true, 25.0, 1);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (1, true, false, 25.0, 1, 'descripcion');
 INSERT IGNORE INTO plato (id_p, nombre, tipo) VALUES (1, 'Silpancho', 'Llano');
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (2, true, 25.0, 2);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (2, true, false, 25.0, 2, 'descripcion');
 INSERT IGNORE INTO plato (id_p, nombre, tipo) VALUES (2, 'Milanesa de pollo', 'Hondo');
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (3, true, 25.0, 3);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (3, true, false, 25.0, 3, 'descripcion');
 INSERT IGNORE INTO plato (id_p, nombre, tipo) VALUES (3, 'Aji de fideo', 'Llano');
 -- Drinks
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (4, true, 15.0, 4);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (4, true, false, 15.0, 4, 'descripcion');
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (4, '0%', '7up', '2L');
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (5, true, 20.0, 5);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (5, true, false, 20.0, 5, 'descripcion');
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (5, '0%', 'Mendocina', '3L');
-INSERT IGNORE INTO producto (id_p, disponible, precio, id_imagen) VALUES (6, true, 17.0, 6);
+INSERT IGNORE INTO producto (id_p, disponible, eliminado, precio, id_imagen, descripcion) VALUES
+                                             (6, true, false, 17.0, 6, 'descripcion');
 INSERT IGNORE INTO bebida (id_p, grado_alcoholico, marca, volumen) VALUES (6, '0%', 'Coca-Cola', '1L');
 
 -- Customers
